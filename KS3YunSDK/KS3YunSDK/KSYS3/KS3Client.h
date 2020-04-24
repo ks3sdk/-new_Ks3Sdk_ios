@@ -13,7 +13,7 @@
 
 @class KingSoftURLConnection;
 @class KS3DownLoad;
-@class ALAsset;
+@class ALAsset; 
 #pragma mark - Download block
 
 typedef void (^KSS3GetTokenSuccessBlock)(NSString *strToken);
