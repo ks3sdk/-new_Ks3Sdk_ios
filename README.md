@@ -5,7 +5,7 @@
 通过 CocoaPods
 
 ```ruby
-pod "Ks3SDK", "~> 2.0.0"
+pod "New_Ks3SDK", "~> 1.0.0"
 ```
 
 ## 使用方法
@@ -38,10 +38,10 @@ pod "Ks3SDK", "~> 2.0.0"
 
 服务端签名计算方法参考：[API接口文档](https://docs.ksyun.com/read/latest/65/_book/index.html)
 
-API详细使用方法参考 [使用文档](https://github.com/ks3sdk/ks3-ios-sdk/blob/master/Docs/Usage.md)
+API详细使用方法参考 [使用文档](https://github.com/ks3sdk/new_Ks3Sdk_ios/blob/master/Docs/Usage.md)
 
 ## 示例代码
 * 完整的demo 见 KS3SDKDemo 目录下的代码
 
 ## 代码许可
-Apache License, Version 2.0。详情见 [License 文件](https://github.com/ks3sdk/ks3-ios-sdk/blob/master/master/LICENSE).
+Apache License, Version 2.0。详情见 [License 文件](https://github.com/ks3sdk/new_Ks3Sdk/blob/master/master/LICENSE).
