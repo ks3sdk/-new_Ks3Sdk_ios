@@ -1,4 +1,3 @@
-# new_ks3sdk_ios
 # KS3 SDK for iOS
 
 ## 安装
