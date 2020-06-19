@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSInteger, KingSoftYun_PermissionACLType) {
   KingSoftYun_Permission_Private,
   KingSoftYun_Permission_Public_Read,
@@ -21,3 +21,4 @@ typedef NS_ENUM(NSInteger, KingSoftYun_PermissionACLType) {
 
 - (NSString *)setContronAccess:(KingSoftYun_PermissionACLType)aclType;
 @end
+NS_ASSUME_NONNULL_END

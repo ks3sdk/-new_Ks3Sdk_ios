@@ -573,8 +573,8 @@
 			isa = PBXGroup;
 			children = (
 				DF67809720EB711700AAAE78 /* KS3Upload.m */,
-				DF67809820EB711700AAAE78 /* KS3UploadRequest.m */,
 				DFD3BFE81EBCA62000BBCCB9 /* KS3UploadRequest.h */,
+				DF67809820EB711700AAAE78 /* KS3UploadRequest.m */,
 				DFD3BFE61EBCA61700BBCCB9 /* KS3Upload.h */,
 				13B9A7C51A5CD2BA001E55BC /* KS3DeleteObjectRequest.h */,
 				13B9A7C61A5CD2BA001E55BC /* KS3DeleteObjectRequest.m */,
@@ -815,6 +815,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 0A6390781A42AF2200BA3A99;

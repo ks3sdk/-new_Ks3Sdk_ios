@@ -8,7 +8,7 @@
 
 #import "KS3MultipartUpload.h"
 #import "KS3Request.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3CompleteMultipartUploadRequest : KS3Request
 
 @property(nonatomic, strong) NSString *key;
@@ -25,3 +25,4 @@
 - (NSData *)requestBody;
 
 @end
+NS_ASSUME_NONNULL_END

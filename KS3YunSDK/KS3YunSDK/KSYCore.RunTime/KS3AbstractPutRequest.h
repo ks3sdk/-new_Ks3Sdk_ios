@@ -7,8 +7,10 @@
 //
 
 #import "KS3Request.h"
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3AbstractPutRequest : KS3Request
 
 - (void)addMetadataWithValue:(NSString *)value forKey:(NSString *)aKey;
 
 @end
+NS_ASSUME_NONNULL_END

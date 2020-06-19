@@ -8,7 +8,7 @@
 
 #import "KS3Owner.h"
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3ListPartsResult : NSObject
 
 @property(strong, nonatomic) NSString *Bucket;
@@ -29,3 +29,4 @@
 @property(strong, nonatomic) NSMutableArray *parts;
 
 @end
+NS_ASSUME_NONNULL_END

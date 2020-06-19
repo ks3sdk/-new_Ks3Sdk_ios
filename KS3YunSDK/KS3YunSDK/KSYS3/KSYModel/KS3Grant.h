@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 @class KS3Grantee;
 @interface KS3Grant : NSObject
 @property(strong, nonatomic) NSString *permission;
@@ -20,3 +21,4 @@
 @property(strong, nonatomic) NSString *URI;
 
 @end
+NS_ASSUME_NONNULL_END

@@ -7,7 +7,7 @@
 //
 
 #import "KS3Request.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3GetObjectRequest : KS3Request
 
 @property(nonatomic, strong) NSString *responseContentType;
@@ -28,3 +28,4 @@
 - (instancetype)initWithName:(NSString *)bucketName;
 
 @end
+NS_ASSUME_NONNULL_END

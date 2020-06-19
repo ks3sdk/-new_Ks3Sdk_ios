@@ -8,6 +8,8 @@
 
 #import "KS3Request.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class KS3AccessControlList;
 @class KS3GrantAccessControlList;
 
@@ -34,3 +36,4 @@
                     grantAcl:(NSArray *)arrGrantAcl;
 
 @end
+NS_ASSUME_NONNULL_END

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3Part : NSObject
 
 @property(strong, nonatomic) NSString *etag;
@@ -19,3 +19,4 @@
 @property(nonatomic, assign) long long size;
 
 @end
+NS_ASSUME_NONNULL_END

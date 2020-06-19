@@ -8,6 +8,8 @@
 
 #import "KS3Request.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface KS3HeadObjectRequest : KS3Request
 
 @property(nonatomic, strong) NSString *range;
@@ -21,3 +23,5 @@
                  withKeyName:(NSString *)strKey;
 
 @end
+
+NS_ASSUME_NONNULL_END

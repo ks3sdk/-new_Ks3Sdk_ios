@@ -210,7 +210,8 @@
         [req setCompleteRequest];
 
         if (self.authHandler) {
-            [req setStrKS3Token:self.authHandler(req)];
+            NSString *strKS3Token = self.authHandler(req);
+            [req setStrKS3Token:strKS3Token];
         } else {
             [req setStrKS3Token:[self authorizationForRequest:req]];
         }

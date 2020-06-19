@@ -8,6 +8,8 @@
 
 #import "KS3AbstractPutRequest.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class KS3AccessControlList;
 @class KS3GrantAccessControlList;
 
@@ -31,3 +33,4 @@
 @property(nonatomic, strong) NSArray *arrGrantAcl;
 
 @end
+NS_ASSUME_NONNULL_END

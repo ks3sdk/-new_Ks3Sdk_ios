@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3Owner : NSObject
 
 @property(strong, nonatomic) NSString *ID;
@@ -19,3 +19,4 @@
 + (id)ownerWithID:(NSString *)theID withDisplayName:(NSString *)theDisplayName;
 
 @end
+NS_ASSUME_NONNULL_END

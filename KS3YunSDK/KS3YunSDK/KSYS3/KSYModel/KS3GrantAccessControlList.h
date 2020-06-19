@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 typedef enum {
   KingSoftYun_Grant_Permission_Read,
   KingSoftYun_Grant_Permission_Write,
@@ -26,3 +26,4 @@ typedef enum {
     (KingSoftYun_GrantPermissionACLType)grantAclType;
 
 @end
+NS_ASSUME_NONNULL_END

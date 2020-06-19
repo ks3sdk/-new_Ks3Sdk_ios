@@ -8,9 +8,10 @@
 
 #import "KS3InitiateMultipartUploadResult.h"
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3InitiateMultipartUploadXMLParser : NSObject <NSXMLParserDelegate>
 @property(strong, nonatomic) KS3InitiateMultipartUploadResult *listBuctkResult;
 - (void)kSS3XMLarse:(NSData *)dataXml;
 
 @end
+NS_ASSUME_NONNULL_END

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 @class KS3ServiceRequest;
 @interface KS3ServiceResponse : NSObject {
   NSMutableData *body;
@@ -32,3 +33,4 @@
 @property(nonatomic, strong) KS3ServiceRequest *request;
 - (void)timeout;
 @end
+NS_ASSUME_NONNULL_END

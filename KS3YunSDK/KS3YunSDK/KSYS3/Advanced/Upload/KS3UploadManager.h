@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class KS3Client;
 @class KS3Request;
 @class KS3Response;
@@ -45,3 +47,4 @@ typedef NSString* (^KS3AuthCalculateHandler)(KS3Request *request);
                error:(KS3UploadErrorHandler)errorHandler;
 
 @end
+NS_ASSUME_NONNULL_END

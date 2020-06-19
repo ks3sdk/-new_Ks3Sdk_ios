@@ -8,7 +8,7 @@
 
 #import "KS3MultipartUpload.h"
 #import "KS3Request.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3UploadPartRequest : KS3Request
 
 @property(nonatomic, strong) NSString *expect;
@@ -25,3 +25,4 @@
                   generateMD5:(BOOL)generateMD5;
 
 @end
+NS_ASSUME_NONNULL_END

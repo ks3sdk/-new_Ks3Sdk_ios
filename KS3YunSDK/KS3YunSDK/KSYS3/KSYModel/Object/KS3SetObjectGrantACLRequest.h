@@ -7,7 +7,7 @@
 //
 
 #import "KS3Request.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @class KS3GrantAccessControlList;
 
 @interface KS3SetObjectGrantACLRequest : KS3Request
@@ -20,3 +20,4 @@
                     grantAcl:(KS3GrantAccessControlList *)grantAcl;
 
 @end
+NS_ASSUME_NONNULL_END

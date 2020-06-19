@@ -8,7 +8,8 @@
 
 #import "KS3MultipartUpload.h"
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3InitiateMultipartUploadResult : NSObject
 @property(strong, nonatomic) KS3MultipartUpload *multipartUpload;
 @end
+NS_ASSUME_NONNULL_END

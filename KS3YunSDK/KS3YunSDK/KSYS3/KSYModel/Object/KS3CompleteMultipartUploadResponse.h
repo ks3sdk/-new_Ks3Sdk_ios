@@ -8,8 +8,9 @@
 
 #import "KS3CompleteMultipartUploadResult.h"
 #import "KS3Response.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3CompleteMultipartUploadResponse : KS3Response
 @property(nonatomic, readonly)
     KS3CompleteMultipartUploadResult *completeMultipartUploadResult;
 @end
+NS_ASSUME_NONNULL_END

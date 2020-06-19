@@ -8,7 +8,7 @@
 
 #import "KS3Client.h"
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @class KS3Credentials;
 
 @protocol KS3DownloadDelegate;
@@ -101,3 +101,4 @@
                       progress:(double)newProgress;
 
 @end
+NS_ASSUME_NONNULL_END

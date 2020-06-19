@@ -8,7 +8,10 @@
 
 #import "KS3BucketACLResult.h"
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3ObjectACLXMLParser : NSObject <NSXMLParserDelegate>
 @property(strong, nonatomic) KS3BucketACLResult *listBuctkResult;
 - (void)kSS3XMLarse:(NSData *)dataXml;
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,9 +8,10 @@
 
 #import "KS3ListPartsResult.h"
 #import "KS3Response.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @class KS3ListPartsResult;
 @interface KS3ListPartsResponse : KS3Response
 
 @property(strong, nonatomic) KS3ListPartsResult *listResult;
 @end
+NS_ASSUME_NONNULL_END

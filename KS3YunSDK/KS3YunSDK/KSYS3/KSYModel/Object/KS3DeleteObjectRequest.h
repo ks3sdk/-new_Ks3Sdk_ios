@@ -7,7 +7,7 @@
 //
 
 #import "KS3Request.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3DeleteObjectRequest : KS3Request
 
 @property(nonatomic, strong) NSString *key;
@@ -16,3 +16,4 @@
                  withKeyName:(NSString *)strKey;
 
 @end
+NS_ASSUME_NONNULL_END

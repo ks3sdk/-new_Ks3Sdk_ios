@@ -7,7 +7,7 @@
 //
 
 #import "KS3InitiateMultipartUploadRequest.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3UploadRequest : KS3InitiateMultipartUploadRequest
 
 - (id)initWithKey:(NSString *)aKey
@@ -16,3 +16,4 @@
          grantAcl:(NSArray *)arrGrantAcl;
 
 @end
+NS_ASSUME_NONNULL_END

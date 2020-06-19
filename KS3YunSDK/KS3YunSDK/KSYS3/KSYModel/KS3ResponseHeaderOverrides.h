@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3ResponseHeaderOverrides : NSObject
 
 @property(nonatomic, strong) NSString *contentType;
@@ -25,3 +25,4 @@
 @property(nonatomic, assign) NSString *queryString;
 
 @end
+NS_ASSUME_NONNULL_END

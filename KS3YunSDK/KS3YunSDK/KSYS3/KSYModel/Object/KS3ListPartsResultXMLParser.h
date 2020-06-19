@@ -8,7 +8,7 @@
 
 #import "KS3ListPartsResult.h"
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3ListPartsResultXMLParser : NSObject <NSXMLParserDelegate>
 
 @property(strong, nonatomic) KS3ListPartsResult *listPartsResult;
@@ -16,3 +16,4 @@
 - (void)kSS3XMLarse:(NSData *)dataXml;
 
 @end
+NS_ASSUME_NONNULL_END

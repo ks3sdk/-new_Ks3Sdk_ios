@@ -9,6 +9,9 @@
 #import "KS3Credentials.h"
 #import "KS3URLRequest.h"
 #import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
 @class KS3ServiceResponse;
 @class KS3ClientException;
 @protocol KingSoftServiceRequestDelegate;
@@ -62,3 +65,5 @@
     __attribute__((deprecated));
 
 @end
+
+NS_ASSUME_NONNULL_END

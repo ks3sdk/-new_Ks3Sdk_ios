@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3CompleteMultipartUploadResult : NSObject
 
 @property(nonatomic, strong) NSString *location;
@@ -18,3 +18,4 @@
 
 @property(nonatomic, strong) NSString *etag;
 @end
+NS_ASSUME_NONNULL_END

@@ -8,7 +8,7 @@
 
 #import "KS3BucketObject.h"
 #import "KS3Request.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface KS3PutObjectCopyRequest : KS3Request
 
 @property(nonatomic, strong) NSString *strSourceBucket;
@@ -42,3 +42,4 @@
              sourceBucketObj:(KS3BucketObject *)sourBucketObj;
 
 @end
+NS_ASSUME_NONNULL_END

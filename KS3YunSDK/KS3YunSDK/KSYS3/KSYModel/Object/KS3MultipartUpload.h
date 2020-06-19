@@ -9,6 +9,8 @@
 #import "KS3Owner.h"
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 //上传类型
 typedef enum {
   kUploadAlasset = 0, //相册中
@@ -45,3 +47,4 @@ typedef enum {
 - (void)cancel;
 
 @end
+NS_ASSUME_NONNULL_END
