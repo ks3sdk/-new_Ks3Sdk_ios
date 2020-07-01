@@ -1,20 +1,20 @@
 Pod::Spec.new do |s|
 
-  s.name         = "Ks3SDK"
-  s.version      = "2.1.3"
+  s.name         = "New_Ks3SDK"
+  s.version      = "1.0.1"
   s.summary      = "iOS SDK for Kingsoft Standard Storage Service"
 
   s.description  = <<-DESC
     An iOS SDK for developers to use Kingsoft Standard Storage Service easier.
                    DESC
 
-  s.homepage     = "https://github.com/ks3sdk/ks3-ios-sdk"
+  s.homepage     = "https://github.com/ks3sdk/new_ks3sdk_ios"
 
   s.license      = "Apache License, Version 2.0"
 
   s.author       = { "cqc" => "cqclife@qq.com" }
 
-  s.source       = { :git => "https://github.com/ks3sdk/ks3-ios-sdk.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/ks3sdk/new_ks3sdk_ios.git", :tag => "v#{s.version}" }
 
   s.requires_arc = true
 

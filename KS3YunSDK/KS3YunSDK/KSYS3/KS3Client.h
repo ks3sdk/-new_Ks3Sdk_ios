@@ -11,6 +11,7 @@
 
 #import "KS3WebServiceClient.h"
 
+NS_ASSUME_NONNULL_BEGIN
 @class KingSoftURLConnection;
 @class KS3DownLoad;
 @class ALAsset; 
@@ -401,3 +402,5 @@ downloadObjectWithBucketName:(NSString *)bucketName
 + (NSString *)apiVersion;
 
 @end
+
+NS_ASSUME_NONNULL_END
