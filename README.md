@@ -6,7 +6,7 @@
 通过 CocoaPods
 
 ```ruby
-pod "New_Ks3SDK", "~>1.0.0"
+pod "New_Ks3SDK", "~>1.0.1"
 ```
 
 ## 使用方法
