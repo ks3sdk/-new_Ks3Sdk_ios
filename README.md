@@ -9,6 +9,13 @@
 pod "New_Ks3SDK", "~>1.0.1"
 ```
 
+## 常见问题
+
+1.0.1  此版本兼容了部分 swift Option类型  
+1.0.2  待发布 全面兼容 swift Option类型
+
+
+
 ## 使用方法
 
 首先需要初始化KS3Client。可以利用AccessKeyID、AccessKeySecret初始化（由于AccessKeySecret要放在客户端，因此不安全，仅建议测试时使用），代码如下：
