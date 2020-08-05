@@ -11,8 +11,8 @@ pod "New_Ks3SDK", "~>1.0.1"
 
 ## 常见问题
 
-1.0.1  此版本兼容了部分 swift Option类型  
-1.0.2  待发布 全面兼容 swift Option类型
+1.0.1  此版本兼容了部分 Swift Option类型  
+1.0.2  待发布 全面兼容 Swift Option类型
 
 
 
