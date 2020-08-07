@@ -1,9 +1,9 @@
 //
 //  KSS3InitiateMultipartUploadRequest.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3AbstractPutRequest.h"
@@ -15,22 +15,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KS3InitiateMultipartUploadRequest : KS3AbstractPutRequest
 
-- (id)initWithKey:(NSString *)aKey
-         inBucket:(NSString *)aBucket
-              acl:(KS3AccessControlList *)acl
-         grantAcl:(NSArray *)arrGrantAcl;
+- (instancetype _Nonnull)initWithKey:(NSString * _Nonnull)aKey
+         inBucket:(NSString * _Nonnull)aBucket
+              acl:(KS3AccessControlList * _Nullable)acl
+         grantAcl:(NSArray * _Nullable)arrGrantAcl;
 
-@property(nonatomic, strong) NSString *key;
-@property(nonatomic, strong) NSString *cacheControl;
-@property(nonatomic, strong) NSString *contentDisposition;
-@property(nonatomic, strong) NSString *contentEncoding;
-@property(nonatomic, strong) NSString *expires;
-@property(nonatomic, strong) NSString *xkssMeta;
-@property(nonatomic, strong) NSString *xkssStorageClass;
-@property(nonatomic, strong) NSString *xkssWebSiteRedirectLocation;
-@property(nonatomic, strong) NSString *xkssAcl;
-@property(nonatomic, strong) KS3AccessControlList *acl;
-@property(nonatomic, strong) NSArray *arrGrantAcl;
+@property(nonatomic, strong, nonnull) NSString *key;
+@property(nonatomic, strong, nullable) NSString *cacheControl;
+@property(nonatomic, strong, nullable) NSString *contentDisposition;
+@property(nonatomic, strong, nullable) NSString *contentEncoding;
+@property(nonatomic, strong, nullable) NSString *expires;
+@property(nonatomic, strong, nullable) NSString *xkssMeta;
+@property(nonatomic, strong, nullable) NSString *xkssStorageClass;
+@property(nonatomic, strong, nullable) NSString *xkssWebSiteRedirectLocation;
+@property(nonatomic, strong, nullable) NSString *xkssAcl;
+@property(nonatomic, strong, nullable) KS3AccessControlList *acl;
+@property(nonatomic, strong, nullable) NSArray *arrGrantAcl;
 
 @end
 NS_ASSUME_NONNULL_END

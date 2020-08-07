@@ -1,9 +1,9 @@
 //
 //  KSS3ListBucketsResult.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/11/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,7 +11,7 @@
 
 @interface KS3ListBucketsResult : NSObject
 
-@property(nonatomic, strong) KS3Owner *owner;
-@property(nonatomic, strong) NSMutableArray *buckets;
+@property(strong, nonatomic, nullable) KS3Owner *owner;
+@property(strong, nonatomic, nullable) NSMutableArray *buckets;
 
 @end

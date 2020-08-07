@@ -1,9 +1,9 @@
 //
 //  KSS3HeadBucketResponse.m
-//  KS3YunSDK
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3HeadBucketResponse.h"

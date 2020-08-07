@@ -1,9 +1,9 @@
 //
 //  KSS3AccessControlList.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/12/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,8 +17,8 @@ typedef NS_ENUM(NSInteger, KingSoftYun_PermissionACLType) {
 };
 
 @interface KS3AccessControlList : NSObject
-@property(strong, nonatomic) NSString *accessACL;
+@property(strong, nonatomic, nullable) NSString *accessACL;
 
-- (NSString *)setContronAccess:(KingSoftYun_PermissionACLType)aclType;
+- (NSString * _Nonnull)setContronAccess:(KingSoftYun_PermissionACLType)aclType;
 @end
 NS_ASSUME_NONNULL_END

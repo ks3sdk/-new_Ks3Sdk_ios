@@ -1,9 +1,9 @@
 //
 //  KSS3SetGrantACLRequest.h
-//  KS3iOSSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 Blues. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 Blues. All rights reserved.
 //
 
 #import "KS3Request.h"
@@ -12,9 +12,9 @@
 
 @interface KS3SetGrantACLRequest : KS3Request
 
-@property(nonatomic, strong) KS3GrantAccessControlList *acl;
+@property(strong, nonatomic, nullable) KS3GrantAccessControlList *acl;
 
-- (instancetype)initWithName:(NSString *)bucketName
+- (instancetype _Nullable)initWithName:(NSString * _Nullable)bucketName
                    accessACL:(KS3GrantAccessControlList *)accessACL;
 
 @end

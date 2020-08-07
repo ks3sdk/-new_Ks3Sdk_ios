@@ -1,9 +1,9 @@
 //
 //  KingSoftServiceResponse.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,25 +12,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface KS3ServiceResponse : NSObject {
   NSMutableData *body;
 }
-@property(nonatomic, readonly) NSData *body;
+@property(nonatomic, readonly,nullable) NSData *body;
 @property(nonatomic, readonly) BOOL isFinishedLoading;
 @property(nonatomic, readonly) BOOL didTimeout;
-@property(nonatomic, strong) NSDictionary *responseHeader;
+@property(strong, nonatomic, nullable) NSDictionary *responseHeader;
 @property(nonatomic) int32_t httpStatusCode;
 
-@property(readonly, copy) NSURL *URL;
+@property(readonly, copy,nullable) NSURL *URL;
 
-@property(readonly, copy) NSString *MIMEType;
+@property(readonly, copy,nullable) NSString *MIMEType;
 
 @property(readonly) long long expectedContentLength;
 
-@property(readonly, copy) NSString *textEncodingName;
+@property(readonly, copy,nullable) NSString *textEncodingName;
 
-@property(readonly, copy) NSString *suggestedFilename;
+@property(readonly, copy,nullable) NSString *suggestedFilename;
 
-@property(strong, nonatomic) NSError *error;
+@property(strong, nonatomic, nullable) NSError *error;
 
-@property(nonatomic, strong) KS3ServiceRequest *request;
+@property(strong, nonatomic, nullable) KS3ServiceRequest *request;
 - (void)timeout;
 @end
 NS_ASSUME_NONNULL_END

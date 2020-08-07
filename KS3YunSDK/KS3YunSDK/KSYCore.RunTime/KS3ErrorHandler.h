@@ -1,9 +1,9 @@
 //
 //  KS3ErrorHandler.h
-//  KS3YunSDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/23/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 12/23/14.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -19,6 +19,6 @@ extern NSString *const KS3iOSSDKClientErrorDomain;
     (NSException *)exception;
 + (NSError *)errorFromException:(NSException *)exception;
 + (NSError *)errorFromException:(NSException *)exception
-             serviceErrorDomain:(NSString *)serviceErrorDomain
-              clientErrorDomain:(NSString *)clientErrorDomain;
+             serviceErrorDomain:(NSString * _Nullable)serviceErrorDomain
+              clientErrorDomain:(NSString * _Nullable)clientErrorDomain;
 @end

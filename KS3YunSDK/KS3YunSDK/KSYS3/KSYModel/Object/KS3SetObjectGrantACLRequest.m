@@ -1,9 +1,9 @@
 //
 //  KSS3SetObjectGrantACLRequest.m
-//  KS3iOSSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 Blues. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 Blues. All rights reserved.
 //
 
 #import "KS3SetObjectGrantACLRequest.h"
@@ -13,9 +13,10 @@
 
 @implementation KS3SetObjectGrantACLRequest
 
-- (instancetype)initWithName:(NSString *)bucketName
-                 withKeyName:(NSString *)strKeyName
-                    grantAcl:(KS3GrantAccessControlList *)grantAcl {
+- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)bucketName
+                 withKeyName:(NSString * _Nonnull)strKeyName
+                    grantAcl:(KS3GrantAccessControlList *_Nonnull)grantAcl
+{
   self = [super init];
   if (self) {
     self.bucket = [self URLEncodedString:bucketName];
@@ -38,7 +39,7 @@
   return self;
 }
 
-- (KS3URLRequest *)configureURLRequest {
+- (KS3URLRequest * _Nonnull)configureURLRequest {
   NSString *strValue =
       [NSString stringWithFormat:@"id=\"%@\", ", _acl.identifier];
   strValue = [strValue

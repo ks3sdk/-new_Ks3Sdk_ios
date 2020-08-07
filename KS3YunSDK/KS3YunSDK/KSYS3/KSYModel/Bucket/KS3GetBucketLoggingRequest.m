@@ -1,9 +1,9 @@
 //
 //  KSS3GetBucketLoggingRequest.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/14/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3GetBucketLoggingRequest.h"
@@ -11,7 +11,7 @@
 #import "KS3Constants.h"
 #import "KS3SDKUtil.h"
 @implementation KS3GetBucketLoggingRequest
-- (instancetype)initWithName:(NSString *)bucketName {
+- (instancetype _Nullable)initWithName:(NSString * _Nullable)bucketName {
   self = [super init];
   if (self) {
     self.bucket = [self URLEncodedString:bucketName];
@@ -26,7 +26,7 @@
   }
   return self;
 }
-- (KS3URLRequest *)configureURLRequest {
+- (KS3URLRequest * _Nonnull)configureURLRequest {
   NSMutableString *queryString = [NSMutableString stringWithCapacity:512];
 
   if (nil != self.prefix) {

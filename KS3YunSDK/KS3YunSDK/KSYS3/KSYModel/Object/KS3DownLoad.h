@@ -1,9 +1,6 @@
 //
-//  MSDownLoad.h
-//  MusicSample
+//  KS3DownLoad.h
 //
-//  Created by JackWong on 14-1-9.
-//  Copyright (c) 2014年 JackWong. All rights reserved.
 //
 
 #import "KS3Client.h"
@@ -28,54 +25,54 @@ NS_ASSUME_NONNULL_BEGIN
   NSURLConnection *connection;
   unsigned long long offset;
 }
-- (id)initWithUrl:(NSString *)aUrl
-      credentials:(KS3Credentials *)
-      credentials:(NSString *)
-       bucketName:(NSString *)objectKey;
+- (instancetype _Nullable)initWithUrl:(NSString * _Nonnull)aUrl
+      credentials:(KS3Credentials * _Nonnull)credentials
+      bucketName:(NSString * _Nonnull)bucketName
+       objectKey:(NSString * _Nonnull)objectKey;
 
 @property(nonatomic, weak) id<KS3DownloadDelegate> delegate;
 
-@property(strong, nonatomic) NSString *bucketName;
+@property(strong, nonatomic, nonnull) NSString *bucketName;
 
-@property(strong, nonatomic) NSString *key;
+@property(strong, nonatomic, nonnull) NSString *key;
 
 @property(nonatomic, assign) BOOL overwrite;
 
-@property(nonatomic, strong) NSString *url;
+@property(strong, nonatomic, nullable) NSString *url;
 
-@property(nonatomic, strong) NSString *fileName;
+@property(strong, nonatomic, nonnull) NSString *fileName;
 
-@property(nonatomic, strong) NSString *filePath;
+@property(strong, nonatomic, nullable) NSString *filePath;
 
-@property(strong, nonatomic) NSString *httpMethod;
+@property(strong, nonatomic, nullable) NSString *httpMethod;
 
-@property(strong, nonatomic) NSString *contentMd5;
+@property(strong, nonatomic, nullable) NSString *contentMd5;
 
-@property(strong, nonatomic) NSString *contentType;
+@property(strong, nonatomic, nullable) NSString *contentType;
 
-@property(strong, nonatomic) NSString *kSYHeader;
+@property(strong, nonatomic, nullable) NSString *kSYHeader;
 
-@property(strong, nonatomic) NSString *kSYResource;
+@property(strong, nonatomic, nullable) NSString *kSYResource;
 
-@property(nonatomic, strong) NSString *strKS3Token;
+@property(strong, nonatomic, nullable) NSString *strKS3Token;
 
-@property(strong, nonatomic) NSDate *requestDate;
+@property(strong, nonatomic, nullable) NSDate *requestDate;
 
-@property(strong, nonatomic) NSString *strDate;
+@property(strong, nonatomic, nullable) NSString *strDate;
 
 @property NSTimeInterval timeoutInterval;
 
 @property(nonatomic, readonly) unsigned long long fileSize;
 
-@property(copy, nonatomic)
+@property(copy, nonatomic, nullable)
     KSS3DownloadProgressChangeBlock downloadProgressChangeBlock;
 
-@property(copy, nonatomic) KSS3DownloadFailedBlock failedBlock;
+@property(copy, nonatomic, nullable) KSS3DownloadFailedBlock failedBlock;
 
-@property(copy, nonatomic)
+@property(copy, nonatomic, nullable)
     kSS3DownloadFileCompleteionBlock downloadFileCompleteionBlock;
 
-@property(copy, nonatomic) KSS3DownloadBeginBlock downloadBeginBlock;
+@property(copy, nonatomic, nullable) KSS3DownloadBeginBlock downloadBeginBlock;
 
 - (void)start;
 
@@ -83,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)stopAndClear;
 
-- (void)setStrKS3Token:(NSString *)ks3Token;
+- (void)setStrKS3Token:(NSString * _Nullable)ks3Token;
 
 @end
 
@@ -95,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)downloadFaild:(KS3DownLoad *)aDownload
      didFailWithError:(NSError *)error;
 
-- (void)downloadFinished:(KS3DownLoad *)aDownload filePath:(NSString *)filePath;
+- (void)downloadFinished:(KS3DownLoad *)aDownload filePath:(NSString * _Nullable)filePath;
 
 - (void)downloadProgressChange:(KS3DownLoad *)aDownload
                       progress:(double)newProgress;

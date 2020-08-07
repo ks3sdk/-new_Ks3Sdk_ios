@@ -1,9 +1,9 @@
 //
 //  KSS3HeadObjectRequest.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/14/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Request.h"
@@ -12,15 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KS3HeadObjectRequest : KS3Request
 
-@property(nonatomic, strong) NSString *range;
-@property(nonatomic, strong) NSString *ifModifiedSince;
-@property(nonatomic, strong) NSString *ifUnmodifiedSince;
-@property(nonatomic, strong) NSString *ifMatch;
-@property(nonatomic, strong) NSString *ifNoneMatch;
-@property(nonatomic, strong) NSString *key;
+@property(strong, nonatomic, nullable) NSString *range;
+@property(strong, nonatomic, nullable) NSString *ifModifiedSince;
+@property(strong, nonatomic, nullable) NSString *ifUnmodifiedSince;
+@property(strong, nonatomic, nullable) NSString *ifMatch;
+@property(strong, nonatomic, nullable) NSString *ifNoneMatch;
+@property(strong, nonatomic, nonnull) NSString *key;
 
-- (instancetype)initWithName:(NSString *)bucketName
-                 withKeyName:(NSString *)strKey;
+- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)bucketName
+                 withKeyName:(NSString * _Nonnull)strKey;
 
 @end
 

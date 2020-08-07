@@ -1,17 +1,17 @@
 //
 //  KSS3InitiateMultipartUploadXMLParser.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3InitiateMultipartUploadXMLParser.h"
 #import "KS3MultipartUpload.h"
 @interface KS3InitiateMultipartUploadXMLParser ()
-@property(strong, nonatomic) KS3MultipartUpload *multipartUpload;
-@property(strong, nonatomic) NSString *currentTag;
-@property(strong, nonatomic) NSMutableString *currentText;
+@property(strong, nonatomic, nullable) KS3MultipartUpload *multipartUpload;
+@property(strong, nonatomic, nullable) NSString *currentTag;
+@property(strong, nonatomic, nullable) NSMutableString *currentText;
 @end
 
 @implementation KS3InitiateMultipartUploadXMLParser
@@ -29,11 +29,7 @@
   _multipartUpload = [[KS3MultipartUpload alloc] init];
 }
 
-- (void)parser:(NSXMLParser *)parser
-    didStartElement:(NSString *)elementName
-       namespaceURI:(NSString *)namespaceURI
-      qualifiedName:(NSString *)qName
-         attributes:(NSDictionary *)attributeDict {
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(NSDictionary<NSString *, NSString *> *)attributeDict{
   if (nil != _currentText) {
     _currentText = nil;
   }
@@ -47,17 +43,14 @@
   }
 }
 
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
   if (nil == _currentText) {
     _currentText = [[NSMutableString alloc] init];
   }
   [_currentText appendString:string];
 }
 
-- (void)parser:(NSXMLParser *)parser
- didEndElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName {
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName{
   if ([elementName isEqualToString:@"Bucket"]) {
     _multipartUpload.bucket = _currentText;
   }

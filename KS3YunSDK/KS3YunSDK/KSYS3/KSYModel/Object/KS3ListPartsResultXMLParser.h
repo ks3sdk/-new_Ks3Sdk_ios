@@ -1,9 +1,9 @@
 //
 //  KSS3ListPartsResultXMLParser.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/16/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 12/16/14.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3ListPartsResult.h"
@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3ListPartsResultXMLParser : NSObject <NSXMLParserDelegate>
 
-@property(strong, nonatomic) KS3ListPartsResult *listPartsResult;
+@property(strong, nonatomic, nullable) KS3ListPartsResult *listPartsResult;
 
 - (void)kSS3XMLarse:(NSData *)dataXml;
 

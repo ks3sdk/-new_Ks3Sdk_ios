@@ -1,16 +1,16 @@
 //
 //  KSS3GrantAccessControlList.m
-//  KS3iOSSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 Blues. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 Blues. All rights reserved.
 //
 
 #import "KS3GrantAccessControlList.h"
 
 @implementation KS3GrantAccessControlList
 
-- (instancetype)init {
+- (instancetype _Nonnull)init {
   self = [super init];
   if (self) {
     _accessGrantACL = @"";
@@ -18,7 +18,7 @@
   return self;
 }
 
-- (NSString *)setGrantControlAccess:
+- (NSString * _Nonnull)setGrantControlAccess:
     (KingSoftYun_GrantPermissionACLType)grantAclType {
   _accessGrantACL = @"";
   switch (grantAclType) {

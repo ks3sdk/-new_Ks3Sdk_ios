@@ -1,9 +1,9 @@
 //
 //  KSS3PutObjectRequest.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3PutObjectRequest.h"
@@ -14,9 +14,9 @@
 #import "KS3SDKUtil.h"
 @implementation KS3PutObjectRequest
 
-- (instancetype)initWithName:(NSString *)bucketName
-                     withAcl:(KS3AccessControlList *)acl
-                    grantAcl:(NSArray *)arrGrantAcl {
+- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)bucketName
+                     withAcl:(KS3AccessControlList * _Nullable)acl
+                    grantAcl:(NSArray * _Nullable)arrGrantAcl {
     self = [super init];
     if (self) {
         self.bucket = [self URLEncodedString:bucketName];
@@ -75,8 +75,7 @@
 
 - (void)setCompleteRequest {
     [self.urlRequest setHTTPBody:_data];
-    [self.urlRequest setValue:self.contentType
-           forHTTPHeaderField:kKSHttpHdrContentType];
+    [self.urlRequest setValue:self.contentType forHTTPHeaderField:kKSHttpHdrContentType];
 
     if (_acl != nil) {
         [self.urlRequest setValue:_acl.accessACL forHTTPHeaderField:@"x-kss-acl"];
@@ -127,7 +126,7 @@
     self.host = [NSString stringWithFormat:@"%@/%@", self.host, _filename];
 }
 
-- (KS3URLRequest *)configureURLRequest {
+- (KS3URLRequest * _Nonnull)configureURLRequest {
     
     [super configureURLRequest];
     return self.urlRequest;

@@ -1,20 +1,21 @@
 //
 //  KSS3CompleteMultipartUploadRequest.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3CompleteMultipartUploadRequest.h"
 #import "KS3Client.h"
 #import "KS3Constants.h"
 @interface KS3CompleteMultipartUploadRequest ()
-@property(strong, nonatomic) NSMutableDictionary *parts;
+@property(strong, nonatomic, nullable) NSMutableDictionary *parts;
 @end
 
 @implementation KS3CompleteMultipartUploadRequest
-- (id)initWithMultipartUpload:(KS3MultipartUpload *)multipartUpload {
+
+- (instancetype _Nonnull)initWithMultipartUpload:(KS3MultipartUpload * _Nonnull)multipartUpload {
   if (self = [super init]) {
     self.bucket = [self URLEncodedString:multipartUpload.bucket];
     self.key = [self URLEncodedString:multipartUpload.key];
@@ -72,7 +73,7 @@
   }
 }
 
-- (NSURLRequest *)configureURLRequest {
+- (NSURLRequest * _Nonnull)configureURLRequest {
   [super configureURLRequest];
   [self.urlRequest setHTTPMethod:kHttpMethodPost];
   [self.urlRequest setHTTPBody:[self requestBody]];
@@ -87,13 +88,13 @@
   return self.urlRequest;
 }
 
-- (void)addPartWithPartNumber:(int)partNumber withETag:(NSString *)etag {
+- (void)addPartWithPartNumber:(int)partNumber withETag:(NSString * _Nonnull)etag {
   if (_parts == nil) {
     _parts = [NSMutableDictionary new];
   }
   [_parts setObject:etag forKey:[NSNumber numberWithInt:partNumber]];
 }
-- (NSData *)requestBody {
+- (NSData * _Nonnull)requestBody {
   NSMutableString *xml =
       [NSMutableString stringWithFormat:@"<CompleteMultipartUpload>"];
   NSComparator comparePartNumbers = ^(id part1, id part2) {

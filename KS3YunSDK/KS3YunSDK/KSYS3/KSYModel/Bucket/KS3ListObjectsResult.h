@@ -1,22 +1,22 @@
 //
 //  ListBucketObjects.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/12/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 @interface KS3ListObjectsResult : NSObject
 
-@property(strong, nonatomic) NSMutableArray *objectSummaries;
-@property(strong, nonatomic) NSString *bucketName;
-@property(strong, nonatomic) NSString *prefix;
-@property(strong, nonatomic) NSString *marker;
-@property(strong, nonatomic) NSString *NextMarker;
+@property(strong, nonatomic, nullable) NSMutableArray *objectSummaries;
+@property(strong, nonatomic, nullable) NSString *bucketName;
+@property(strong, nonatomic, nullable) NSString *prefix;
+@property(strong, nonatomic, nullable) NSString *marker;
+@property(strong, nonatomic, nullable) NSString *NextMarker;
 @property(nonatomic) int32_t maxKeys;
-@property(strong, nonatomic) NSString *delimiter;
+@property(strong, nonatomic, nullable) NSString *delimiter;
 @property(assign, nonatomic) BOOL IsTruncated;
-@property(strong, nonatomic) NSMutableArray *commonPrefixes;
+@property(strong, nonatomic, nullable) NSMutableArray *commonPrefixes;
 @end

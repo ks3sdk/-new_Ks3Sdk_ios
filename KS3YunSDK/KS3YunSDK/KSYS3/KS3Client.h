@@ -1,12 +1,9 @@
 //
-//  KingSoftS3Client.h
-//  KS3SDK
+//  KS3Client.h
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
-//  有问题联系
-//  QQ:315720327
-//  email:me@iluckly.com
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3WebServiceClient.h"
@@ -82,7 +79,6 @@ typedef enum {
   KS3BucketBeijing = 0,
   KS3BucketAmerica,
   KS3BucketHongkong,
-  KS3BucketHangzhou,
   KS3BucketShanghai,
   KS3BucketQingdao,
   KS3BucketPrivate,
@@ -91,20 +87,20 @@ typedef enum {
 @interface KS3Client : KS3WebServiceClient
 
 @property(assign, nonatomic) BOOL enableHTTPS;
-@property(strong, nonatomic) KS3Credentials *credentials;
+@property(strong, nonatomic,nullable) KS3Credentials *credentials;
 
 /**
  *  初始化
  *
  *  @return Client对象
  */
-+ (KS3Client *)initialize;
++ (KS3Client * _Nullable)initialize;
 
 /**
  * 返回请求协议：http/https
  * 目前由enableHTTPS决定
  */
-- (NSString *)requestProtocol;
+- (NSString * _Nullable)requestProtocol;
 
 /**
  *  设置AccessKey和SecretKey
@@ -113,8 +109,8 @@ typedef enum {
  *  @param secretKey
  *  注释：这个接口必须实现（这个是使用下面API的（前提））建议在工程的delegate里面实现
  */
-- (void)connectWithAccessKey:(NSString *)accessKey
-               withSecretKey:(NSString *)secretKey;
+- (void)connectWithAccessKey:(NSString * _Nonnull)accessKey
+               withSecretKey:(NSString * _Nonnull)secretKey;
 /**
  *  设置KS3Bucket所在的地区，默认北京
 
@@ -127,26 +123,26 @@ typedef enum {
   设置KS3Bucket 所在的地区
  @param 自定义的域名
  */
-- (void)setBucketDomain:(NSString *)domainRegion;
+- (void)setBucketDomain:(NSString * _Nullable)domainRegion;
 
 /**
  *  获取当前bucket所在地区，默认北京
     共有北京，杭州，美国圣克拉拉，香港四个
  */
-- (NSString *)getBucketDomain;
+- (NSString * _Nonnull)getBucketDomain;
 
 /**
  *  获取用户自定义的域名
  *  如果没有设置，返回nil
  */
-- (NSString *)getCustomBucketDomain;
+- (NSString * _Nullable)getCustomBucketDomain;
 
 /**
  *  列出客户所有的Bucket信息
  *
  *  @return 所有bucket的数组
  */
-- (NSArray *)listBuckets:(KS3ListBucketsRequest *)listBucketsRequest;
+- (NSArray * _Nullable)listBuckets:(KS3ListBucketsRequest * _Nonnull)listBucketsRequest;
 
 /**
  *  创建一个新的Bucket
@@ -155,8 +151,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3CreateBucketResponse *)createBucket:
-    (KS3CreateBucketRequest *)createBucketRequest;
+- (KS3CreateBucketResponse * _Nullable)createBucket:(KS3CreateBucketRequest * _Nonnull)createBucketRequest;
 /**
  *  删除指定Bucket
  *
@@ -164,8 +159,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3DeleteBucketResponse *)deleteBucket:
-    (KS3DeleteBucketRequest *)deleteBucketRequest;
+- (KS3DeleteBucketResponse * _Nullable)deleteBucket:(KS3DeleteBucketRequest * _Nonnull)deleteBucketRequest;
 /**
  *  查询是否已经存在指定Bucket
  *
@@ -173,7 +167,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3HeadBucketResponse *)headBucket:(KS3HeadBucketRequest *)headBucketRequest;
+- (KS3HeadBucketResponse * _Nullable)headBucket:(KS3HeadBucketRequest * _Nonnull)headBucketRequest;
 
 /**
  *  获得Bucket的acl
@@ -182,7 +176,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3GetACLResponse *)getBucketACL:(KS3GetACLRequest *)getACLRequest;
+- (KS3GetACLResponse * _Nullable)getBucketACL:(KS3GetACLRequest * _Nonnull)getACLRequest;
 /**
  *  设置Bucket的ACL
  *
@@ -190,7 +184,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3SetACLResponse *)setBucketACL:(KS3SetACLRequest *)getACLRequest;
+- (KS3SetACLResponse * _Nullable)setBucketACL:(KS3SetACLRequest * _Nonnull)getACLRequest;
 /**
  *  设置GrantACL信息
  *
@@ -198,8 +192,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3SetGrantACLResponse *)setGrantACL:
-    (KS3SetGrantACLRequest *)setGrantACLRequest;
+- (KS3SetGrantACLResponse * _Nullable)setGrantACL:(KS3SetGrantACLRequest * _Nonnull)setGrantACLRequest;
 /**
  *  列举Bucket内的Object
  *
@@ -207,8 +200,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3ListObjectsResponse *)listObjects:
-    (KS3ListObjectsRequest *)listObjectsRequest;
+- (KS3ListObjectsResponse * _Nullable)listObjects:(KS3ListObjectsRequest * _Nonnull)listObjectsRequest;
 
 /**
  *  获得Bucket的日志信息
@@ -217,8 +209,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3GetBucketLoggingResponse *)getBucketLogging:
-    (KS3GetBucketLoggingRequest *)getBucketLoggingRequest;
+- (KS3GetBucketLoggingResponse * _Nullable)getBucketLogging:(KS3GetBucketLoggingRequest * _Nonnull)getBucketLoggingRequest;
 /**
  *  下载Object数据
  *
@@ -226,7 +217,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3GetObjectResponse *)getObject:(KS3GetObjectRequest *)getObjectRequest;
+- (KS3GetObjectResponse * _Nullable)getObject:(KS3GetObjectRequest * _Nonnull)getObjectRequest;
 /**
  *  删除指定Object
  *
@@ -234,8 +225,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3DeleteObjectResponse *)deleteObject:
-    (KS3DeleteObjectRequest *)deleteObjectRequest;
+- (KS3DeleteObjectResponse * _Nullable)deleteObject:(KS3DeleteObjectRequest * _Nonnull)deleteObjectRequest;
 
 /**
  *  查询是否已经存在指定Object
@@ -244,7 +234,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3HeadObjectResponse *)headObject:(KS3HeadObjectRequest *)headObjectRequest;
+- (KS3HeadObjectResponse * _Nullable)headObject:(KS3HeadObjectRequest * _Nonnull)headObjectRequest;
 /**
  *  上传Object数据 （如果文件比较大请设置委托）
  *
@@ -252,7 +242,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3PutObjectResponse *)putObject:(KS3PutObjectRequest *)putObjectRequest;
+- (KS3PutObjectResponse * _Nullable)putObject:(KS3PutObjectRequest * _Nonnull)putObjectRequest;
 /**
  *  把源Bucket里面的某个Object复制到目的Bucket里面一个指定的Object
  *
@@ -260,8 +250,7 @@ typedef enum {
  *
  *  @return 返回response对象（里边有服务返回的数据（具体的参照demo）
  */
-- (KS3PutObjectCopyResponse *)putObjectCopy:
-    (KS3PutObjectCopyRequest *)putObjectCopyRequest;
+- (KS3PutObjectCopyResponse * _Nullable)putObjectCopy:(KS3PutObjectCopyRequest * _Nonnull)putObjectCopyRequest;
 
 /**
  *  获得Object的acl
@@ -270,8 +259,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3GetObjectACLResponse *)getObjectACL:
-    (KS3GetObjectACLRequest *)getObjectACLRequest;
+- (KS3GetObjectACLResponse * _Nullable)getObjectACL:(KS3GetObjectACLRequest * _Nonnull)getObjectACLRequest;
 /**
  *  设置Object的acl
  *
@@ -280,8 +268,7 @@ typedef enum {
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
 
-- (KS3SetObjectACLResponse *)setObjectACL:
-    (KS3SetObjectACLRequest *)setObjectACLRequest;
+- (KS3SetObjectACLResponse * _Nullable)setObjectACL:(KS3SetObjectACLRequest * _Nonnull)setObjectACLRequest;
 /**
  *  设置ObjectGrantACL
  *
@@ -290,8 +277,7 @@ typedef enum {
  *  @return @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
 
-- (KS3SetObjectGrantACLResponse *)setObjectGrantACL:
-    (KS3SetObjectGrantACLRequest *)setObjectGrantACLRequest;
+- (KS3SetObjectGrantACLResponse * _Nullable)setObjectGrantACL:(KS3SetObjectGrantACLRequest * _Nonnull)setObjectGrantACLRequest;
 /**
  *  调用这个接口会初始化一个分块上传
  *
@@ -300,10 +286,9 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3MultipartUpload *)initiateMultipartUploadWithRequest:
-    (KS3InitiateMultipartUploadRequest *)request;
+- (KS3MultipartUpload * _Nullable)initiateMultipartUploadWithRequest:(KS3InitiateMultipartUploadRequest * _Nonnull)request;
 
-- (KS3InitiateMultipartUploadResponse *)initiateMultipartUploadWithRequestAndResponse:(KS3InitiateMultipartUploadRequest *)request;
+- (KS3InitiateMultipartUploadResponse * _Nullable)initiateMultipartUploadWithRequestAndResponse:(KS3InitiateMultipartUploadRequest * _Nonnull)request;
 
 /**
  *  上传分块
@@ -312,7 +297,7 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3UploadPartResponse *)uploadPart:(KS3UploadPartRequest *)uploadPartRequest;
+- (KS3UploadPartResponse * _Nullable)uploadPart:(KS3UploadPartRequest * _Nonnull)uploadPartRequest;
 /**
  *  获取相册分块数据
  *
@@ -323,9 +308,9 @@ typedef enum {
  *
  *  @return
  */
-- (NSData *)getUploadPartDataWithPartNum:(NSInteger)partNum
+- (NSData * _Nullable)getUploadPartDataWithPartNum:(NSInteger)partNum
                               partLength:(NSInteger)partlength
-                              alassetURL:(NSURL *)alassetURL;
+                              alassetURL:(NSURL * _Nullable)alassetURL;
 /**
  *  获取相册分块数据
  *
@@ -335,16 +320,16 @@ typedef enum {
  *
  *  @return
  */
-- (NSData *)getUploadPartDataWithPartNum:(NSInteger)partNum
+- (NSData * _Nullable)getUploadPartDataWithPartNum:(NSInteger)partNum
                               partLength:(NSInteger)partlength
-                                 Alasset:(ALAsset *)assets;
+                                 Alasset:(ALAsset * _Nullable)assets;
 /**
  *  获取相册类
  *  @param alassetURL 开头是assets-library://标识Alasset类的相册地址
  *
  *  @return
  */
-- (ALAsset *)getAlassetFromAlassetURL:(NSURL *)alassetURL;
+- (ALAsset * _Nullable)getAlassetFromAlassetURL:(NSURL * _Nonnull)alassetURL;
 /**
  *  罗列出已经上传的块
  *
@@ -353,7 +338,7 @@ typedef enum {
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
 
-- (KS3ListPartsResponse *)listParts:(KS3ListPartsRequest *)listPartsRequest;
+- (KS3ListPartsResponse * _Nullable)listParts:(KS3ListPartsRequest * _Nonnull)listPartsRequest;
 /**
  *  组装所有分块上传的文件
  *
@@ -361,8 +346,8 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3CompleteMultipartUploadResponse *)completeMultipartUpload:
-    (KS3CompleteMultipartUploadRequest *)completeMultipartUploadRequest;
+- (KS3CompleteMultipartUploadResponse * _Nullable)completeMultipartUpload:
+    (KS3CompleteMultipartUploadRequest * _Nonnull)completeMultipartUploadRequest;
 /**
  *  取消分块上传
  *
@@ -370,8 +355,8 @@ typedef enum {
  *
  *  @return 返回resonse对象（里边有服务返回的数据（具体的参照demo））
  */
-- (KS3AbortMultipartUploadResponse *)abortMultipartUpload:
-    (KS3AbortMultipartUploadRequest *)abortMultipartRequest;
+- (KS3AbortMultipartUploadResponse * _Nullable)abortMultipartUpload:
+    (KS3AbortMultipartUploadRequest * _Nonnull)abortMultipartRequest;
 /**
  *  下载Object数据
  *
@@ -384,22 +369,19 @@ typedef enum {
  *
  *  @return 一个下载器对象（里面有文件属性）
  */
-- (KS3DownLoad *)
-downloadObjectWithBucketName:(NSString *)bucketName
-                         key:(NSString *)key
-          downloadBeginBlock:(KSS3DownloadBeginBlock)downloadBeginBlock
-     downloadFileCompleteion:
-         (kSS3DownloadFileCompleteionBlock)downloadFileCompleteion
- downloadProgressChangeBlock:
-     (KSS3DownloadProgressChangeBlock)downloadProgressChangeBlock
-                 failedBlock:(KSS3DownloadFailedBlock)failedBlock;
+- (KS3DownLoad * _Nullable)downloadObjectWithBucketName:(NSString * _Nonnull)bucketName
+                         key:(NSString * _Nonnull)key
+          downloadBeginBlock:(KSS3DownloadBeginBlock _Nullable)downloadBeginBlock
+     downloadFileCompleteion:(kSS3DownloadFileCompleteionBlock _Nullable)downloadFileCompleteion
+ downloadProgressChangeBlock:(KSS3DownloadProgressChangeBlock _Nullable)downloadProgressChangeBlock
+                 failedBlock:(KSS3DownloadFailedBlock _Nullable)failedBlock;
 
 /**
  *  返回版本信息
  *
  *  @return 版本信息
  */
-+ (NSString *)apiVersion;
++ (NSString * _Nonnull)apiVersion;
 
 @end
 

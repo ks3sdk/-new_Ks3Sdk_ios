@@ -1,9 +1,9 @@
 //
 //  KS3PutObjectCopyRequest.h
-//  KSYSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/25/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3BucketObject.h"
@@ -11,35 +11,35 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3PutObjectCopyRequest : KS3Request
 
-@property(nonatomic, strong) NSString *strSourceBucket;
-@property(nonatomic, strong) NSString *strSourceObject;
-@property(nonatomic, strong) NSString *xkssMetaDataDirective;
-@property(nonatomic, strong) NSString *xkssCopySourceIfMatch;
-@property(nonatomic, strong) NSString *xkssCopySourceIfNoneMatch;
-@property(nonatomic, strong) NSString *xkssCopySourceIfUnmodifiedSince;
-@property(nonatomic, strong) NSString *xkssCopySourceIfModifiedSince;
-@property(nonatomic, strong) NSString *xkssMeta;
-@property(nonatomic, strong) NSString *xkssStorageClass;
-@property(nonatomic, strong) NSString *xkssWebsiteRedirectLocation;
+@property(strong, nonatomic, nonnull) NSString *strSourceBucket;
+@property(strong, nonatomic, nonnull) NSString *strSourceObject;
+@property(strong, nonatomic, nullable) NSString *xkssMetaDataDirective;
+@property(strong, nonatomic, nullable) NSString *xkssCopySourceIfMatch;
+@property(strong, nonatomic, nullable) NSString *xkssCopySourceIfNoneMatch;
+@property(strong, nonatomic, nullable) NSString *xkssCopySourceIfUnmodifiedSince;
+@property(strong, nonatomic, nullable) NSString *xkssCopySourceIfModifiedSince;
+@property(strong, nonatomic, nullable) NSString *xkssMeta;
+@property(strong, nonatomic, nullable) NSString *xkssStorageClass;
+@property(strong, nonatomic, nullable) NSString *xkssWebsiteRedirectLocation;
 
-@property(nonatomic, strong) NSString *xkssServerSideEncryption;
-@property(nonatomic, strong) NSString *xkssServerSideEncryptionCustomerKey;
-@property(nonatomic, strong)
+@property(strong, nonatomic, nullable) NSString *xkssServerSideEncryption;
+@property(strong, nonatomic, nullable) NSString *xkssServerSideEncryptionCustomerKey;
+@property(strong, nonatomic, nullable)
     NSString *xkssServerSideEncryptionCustomerAlgorithm;
-@property(nonatomic, strong) NSString *xkssServerSideEncryptionCustomerKeyMD5;
-@property(nonatomic, strong)
+@property(strong, nonatomic, nullable) NSString *xkssServerSideEncryptionCustomerKeyMD5;
+@property(strong, nonatomic, nullable)
     NSString *xkssCopySourceServerSideEncryptionCustomerKey;
-@property(nonatomic, strong)
+@property(strong, nonatomic, nullable)
     NSString *xkssCopySourceServerSideEncryptionCustomerAlgorithm;
-@property(nonatomic, strong)
+@property(strong, nonatomic, nullable)
     NSString *xkssCopySourceServerSideEncryptionCustomerMD5;
-@property(nonatomic, strong) NSString *xkssAcl;
+@property(strong, nonatomic, nullable) NSString *xkssAcl;
 
-@property(nonatomic, strong) NSString *key;
+@property(strong, nonatomic, nonnull) NSString *key;
 
-//- (instancetype)initWithName:(NSString *)bucketName;
-- (instancetype)initWithName:(KS3BucketObject *)destBucketObj
-             sourceBucketObj:(KS3BucketObject *)sourBucketObj;
+//- (instancetype _Nullable)initWithName:(NSString * _Nullable)bucketName;
+- (instancetype _Nonnull)initWithName:(KS3BucketObject * _Nonnull)destBucketObj
+             sourceBucketObj:(KS3BucketObject * _Nonnull)sourBucketObj;
 
 @end
 NS_ASSUME_NONNULL_END

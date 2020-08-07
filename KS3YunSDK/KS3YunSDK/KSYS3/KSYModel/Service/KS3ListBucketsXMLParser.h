@@ -1,9 +1,9 @@
 //
 //  KSS3ListBucketsXMLParser.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/11/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3ListBucketsResult.h"
@@ -11,6 +11,6 @@
 #import <Foundation/Foundation.h>
 
 @interface KS3ListBucketsXMLParser : NSObject <NSXMLParserDelegate>
-@property(strong, nonatomic) KS3ListBucketsResult *listBuctkResult;
+@property(strong, nonatomic, nullable) KS3ListBucketsResult *listBuctkResult;
 - (void)kSS3XMLarse:(NSData *)dataXml;
 @end

@@ -1,9 +1,9 @@
 //
 //  KSS3ListObjectsXMLPrarser.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/14/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3ListObjectsXMLPrarser.h"
@@ -13,9 +13,9 @@
 
 @interface KS3ListObjectsXMLPrarser ()
 
-@property(strong, nonatomic) NSString *currentTag;
-@property(strong, nonatomic) NSMutableString *currentText;
-@property(strong, nonatomic) KS3ObjectSummary *objectSummary;
+@property(strong, nonatomic, nullable) NSString *currentTag;
+@property(strong, nonatomic, nullable) NSMutableString *currentText;
+@property(strong, nonatomic, nullable) KS3ObjectSummary *objectSummary;
 
 @property(nonatomic) BOOL isContents;
 @property(nonatomic) BOOL isOwner;
@@ -36,37 +36,31 @@
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
   _listBuctkResult = [[KS3ListObjectsResult alloc] init];
 }
-
-- (void)parser:(NSXMLParser *)parser
-    didStartElement:(NSString *)elementName
-       namespaceURI:(NSString *)namespaceURI
-      qualifiedName:(NSString *)qName
-         attributes:(NSDictionary *)attributeDict {
-  if (nil != _currentText) {
-    _currentText = nil;
-  }
-  _currentTag = elementName;
-
-  if ([elementName isEqualToString:@"Contents"]) {
-    _isContents = YES;
-    _isCommonPrefixes = NO;
-    if (nil != _objectSummary) {
-      _objectSummary = nil;
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(NSDictionary<NSString *, NSString *> *)attributeDict{
+    if (nil != _currentText) {
+      _currentText = nil;
     }
-    _objectSummary = [KS3ObjectSummary new];
-  }
-  if ([elementName isEqualToString:@"Owner"]) {
-    if (nil != _objectSummary.owner) {
-      _objectSummary.owner = nil;
+    _currentTag = elementName;
+
+    if ([elementName isEqualToString:@"Contents"]) {
+      _isContents = YES;
+      _isCommonPrefixes = NO;
+      if (nil != _objectSummary) {
+        _objectSummary = nil;
+      }
+      _objectSummary = [KS3ObjectSummary new];
     }
-    _objectSummary.owner = [KS3Owner new];
-  }
-  if ([elementName isEqualToString:@"CommonPrefixes"]) {
-    _isCommonPrefixes = YES;
-    _isContents = NO;
-  }
+    if ([elementName isEqualToString:@"Owner"]) {
+      if (nil != _objectSummary.owner) {
+        _objectSummary.owner = nil;
+      }
+      _objectSummary.owner = [KS3Owner new];
+    }
+    if ([elementName isEqualToString:@"CommonPrefixes"]) {
+      _isCommonPrefixes = YES;
+      _isContents = NO;
+    }
 }
-
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
   if (nil == _currentText) {
     _currentText = [[NSMutableString alloc] init];

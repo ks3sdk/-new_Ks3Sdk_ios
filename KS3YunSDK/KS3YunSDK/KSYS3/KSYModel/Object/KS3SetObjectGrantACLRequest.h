@@ -1,9 +1,9 @@
 //
 //  KSS3SetObjectGrantACLRequest.h
-//  KS3iOSSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 Blues. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 Blues. All rights reserved.
 //
 
 #import "KS3Request.h"
@@ -12,12 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KS3SetObjectGrantACLRequest : KS3Request
 
-@property(nonatomic, strong) KS3GrantAccessControlList *acl;
-@property(nonatomic, strong) NSString *key;
+@property(strong, nonatomic, nonnull) KS3GrantAccessControlList *acl;
+@property(strong, nonatomic, nonnull) NSString *key;
 
-- (instancetype)initWithName:(NSString *)bucketName
-                 withKeyName:(NSString *)strKeyName
-                    grantAcl:(KS3GrantAccessControlList *)grantAcl;
+- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)bucketName
+                 withKeyName:(NSString * _Nonnull)strKeyName
+                    grantAcl:(KS3GrantAccessControlList *_Nonnull)grantAcl;
 
 @end
 NS_ASSUME_NONNULL_END

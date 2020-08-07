@@ -1,9 +1,9 @@
 //
 //  KSS3InitiateMultipartUploadRequest.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3InitiateMultipartUploadRequest.h"
@@ -18,7 +18,7 @@
 
 @implementation KS3InitiateMultipartUploadRequest
 
-- (id)init {
+- (instancetype _Nullable)init {
     if (self = [super init]) {
         //        _expires = 0;
         //        _expiresSet = NO;
@@ -27,10 +27,11 @@
     return self;
 }
 
-- (id)initWithKey:(NSString *)aKey
-         inBucket:(NSString *)aBucket
-              acl:(KS3AccessControlList *)acl
-         grantAcl:(NSArray *)arrGrantAcl {
+- (instancetype _Nonnull)initWithKey:(NSString * _Nonnull)aKey
+         inBucket:(NSString * _Nonnull)aBucket
+              acl:(KS3AccessControlList * _Nullable)acl
+         grantAcl:(NSArray * _Nullable)arrGrantAcl {
+    
     if (self = [self init]) {
         self.key = [self URLEncodedString:aKey];
         self.bucket = [self URLEncodedString:aBucket];
@@ -56,7 +57,6 @@
             }
         }
     }
-
     return self;
 }
 
@@ -153,7 +153,7 @@
     }
 }
 
-- (NSMutableURLRequest *)configureURLRequest {
+- (NSMutableURLRequest * _Nonnull)configureURLRequest {
     [super configureURLRequest];
     return self.urlRequest;
 }

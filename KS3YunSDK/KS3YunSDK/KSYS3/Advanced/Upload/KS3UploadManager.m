@@ -1,8 +1,8 @@
 //
 //  KS3UploadManager.m
-//  Pods
+//  NEW_KSCSDK
 //
-//  Created by Sun Peng on 2017/4/27.
+//  Created by ks3 on 2020/08/06.
 //
 //
 
@@ -28,16 +28,16 @@
 
 @interface KS3UploadManager()
 
-@property (nonatomic, strong) KS3Client *client;
-@property (nonatomic, strong) KS3AuthCalculateHandler authHandler;
+@property (strong, nonatomic, nullable) KS3Client *client;
+@property (strong, nonatomic, nullable) KS3AuthCalculateHandler authHandler;
 
-@property (nonatomic, strong) NSMutableDictionary *uploadRecorder;
-@property (nonatomic, strong) NSMutableDictionary *dataRecorder;
-@property (nonatomic, strong) NSMutableDictionary *progressRecorder;
-@property (nonatomic, strong) NSMutableDictionary *progressHandlers;
-@property (nonatomic, strong) NSMutableDictionary *cancelSignalHandlers;
-@property (nonatomic, strong) NSMutableDictionary *completeHandlers;
-@property (nonatomic, strong) NSMutableDictionary *errorHandlers;
+@property (strong, nonatomic, nullable) NSMutableDictionary *uploadRecorder;
+@property (strong, nonatomic, nullable) NSMutableDictionary *dataRecorder;
+@property (strong, nonatomic, nullable) NSMutableDictionary *progressRecorder;
+@property (strong, nonatomic, nullable) NSMutableDictionary *progressHandlers;
+@property (strong, nonatomic, nullable) NSMutableDictionary *cancelSignalHandlers;
+@property (strong, nonatomic, nullable) NSMutableDictionary *completeHandlers;
+@property (strong, nonatomic, nullable) NSMutableDictionary *errorHandlers;
 
 @end
 
@@ -46,7 +46,7 @@
 
 @implementation KS3UploadManager
 
-- (instancetype)initWithClient:(KS3Client *)client authHandler:(KS3AuthCalculateHandler)authHandler {
+- (instancetype _Nullable)initWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler _Nullable)authHandler {
     if (self = [super init]) {
         self.client = client;
         self.authHandler = authHandler;
@@ -63,7 +63,7 @@
     return self;
 }
 
-+(instancetype)sharedInstanceWithClient:(KS3Client *)client authHandler:(KS3AuthCalculateHandler)authHandler {
++(instancetype _Nullable)sharedInstanceWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler)authHandler {
     static KS3UploadManager *sharedManager = nil;
 
     static dispatch_once_t onceToken;
@@ -74,17 +74,14 @@
     return sharedManager;
 }
 
-- (void)putData:(NSData *)data
-        request:(KS3UploadRequest *)request
+- (void)putData:(NSData * _Nonnull)data
+        request:(KS3UploadRequest * _Nonnull)request
       blockSize:(NSInteger)size
-       progress:(KS3UploadProgressHandler)progressHandler
-   cancelSignal:(KS3UploadCancellationSignal)cancelSignal
-       complete:(KS3UploadCompletionHandler)completionHandler
-          error:(KS3UploadErrorHandler)errorHandler {
+       progress:(KS3UploadProgressHandler _Nullable)progressHandler
+   cancelSignal:(KS3UploadCancellationSignal _Nullable)cancelSignal
+       complete:(KS3UploadCompletionHandler _Nullable)completionHandler
+          error:(KS3UploadErrorHandler _Nullable)errorHandler {
     NSInteger contentLength = data.length;
-
-    NSInteger blockLength = size;
-
     if (size < kMinBlockSize) {
         size = kMinBlockSize;
     }
@@ -121,12 +118,12 @@
     [self upload:upload.uploadId part:1];
 }
 
-- (void)resumeUpload:(NSData *)data
-              upload:(KS3Upload *)upload
-            progress:(KS3UploadProgressHandler)progressHandler
-        cancelSignal:(KS3UploadCancellationSignal)cancelSignal
-            complete:(KS3UploadCompletionHandler)completionHandler
-               error:(KS3UploadErrorHandler)errorHandler {
+- (void)resumeUpload:(NSData * _Nonnull)data
+              upload:(KS3Upload * _Nonnull)upload
+            progress:(KS3UploadProgressHandler _Nullable)progressHandler
+        cancelSignal:(KS3UploadCancellationSignal _Nullable)cancelSignal
+            complete:(KS3UploadCompletionHandler _Nullable)completionHandler
+               error:(KS3UploadErrorHandler _Nullable)errorHandler {
     [self registerUpload:upload data:data progressHandler:progressHandler cancelSignal:cancelSignal completeHandler:completionHandler errorHandler:errorHandler];
     NSString *uploadId = upload.uploadId;
     NSString *objectKey = upload.key;
@@ -148,7 +145,7 @@
     NSLog(@"response.listResult.parts.count =%lu",(unsigned long)[response2.listResult.parts count]);
 
     //从这块开始上传,list结果的最后一块
-    NSNumber *uploadedPart = [NSNumber numberWithInteger:((KS3Part *)[response2.listResult.parts lastObject]).partNumber];
+    NSNumber *uploadedPart = [NSNumber numberWithInteger:((KS3Part * _Nullable)[response2.listResult.parts lastObject]).partNumber];
     [self.progressRecorder setObject:uploadedPart forKey:uploadId];
 
     //进度补齐
@@ -160,22 +157,31 @@
 }
 
 #pragma mark - Register methods
-- (void)registerUpload:(KS3Upload *)upload data:(NSData *)data
-       progressHandler:(KS3UploadProgressHandler)progressHandler
-          cancelSignal:(KS3UploadCancellationSignal)cancelSignal
-       completeHandler:(KS3UploadCompletionHandler)completionHandler
-          errorHandler:(KS3UploadErrorHandler)errorHandler {
+- (void)registerUpload:(KS3Upload * _Nonnull)upload
+                  data:(NSData * _Nonnull)data
+       progressHandler:(KS3UploadProgressHandler _Nullable)progressHandler
+          cancelSignal:(KS3UploadCancellationSignal _Nullable)cancelSignal
+       completeHandler:(KS3UploadCompletionHandler _Nullable)completionHandler
+          errorHandler:(KS3UploadErrorHandler _Nullable)errorHandler {
     NSString *uploadId = upload.uploadId;
     [self.uploadRecorder setObject:upload forKey:uploadId];
     [self.dataRecorder setObject:data forKey:uploadId];
     [self.progressRecorder setObject:[NSNumber numberWithInteger:0] forKey:uploadId];
-    [self.progressHandlers setObject:progressHandler forKey:uploadId];
-    [self.cancelSignalHandlers setObject:cancelSignal forKey:uploadId];
-    [self.completeHandlers setObject:completionHandler forKey:uploadId];
-    [self.errorHandlers setObject:errorHandler forKey:uploadId];
+    if (progressHandler) {
+        [self.progressHandlers setObject:progressHandler forKey:uploadId];
+    }
+    if (cancelSignal) {
+        [self.cancelSignalHandlers setObject:cancelSignal forKey:uploadId];
+    }
+    if (completionHandler) {
+        [self.completeHandlers setObject:completionHandler forKey:uploadId];
+    }
+    if (errorHandler) {
+        [self.errorHandlers setObject:errorHandler forKey:uploadId];
+    }
 }
 
-- (void)removeUpload:(KS3Upload *)upload {
+- (void)removeUpload:(KS3Upload * _Nonnull)upload {
     NSString *uploadId = upload.uploadId;
     [self.uploadRecorder removeObjectForKey:uploadId];
     [self.dataRecorder removeObjectForKey:uploadId];
@@ -187,14 +193,14 @@
 }
 
 #pragma mark - Data Helper
-- (NSData *)dataWithRange:(NSData *)data range:(NSRange)range {
+- (NSData * _Nonnull)dataWithRange:(NSData * _Nonnull)data range:(NSRange)range {
     NSRange totalRange = NSMakeRange(0, data.length);
     NSRange intersectRange = NSIntersectionRange(range, totalRange);
     return [data subdataWithRange:intersectRange];
 }
 
 #pragma mark - Upload methods
-- (void)upload:(NSString *)uploadId part:(NSInteger) part
+- (void)upload:(NSString * _Nonnull)uploadId part:(NSInteger) part
 {
     @autoreleasepool {
         KS3Upload *multipartUpload = [self.uploadRecorder objectForKey:uploadId];
@@ -221,7 +227,7 @@
 }
 
 #pragma mark - Auth Utils
-- (NSString *)authorizationForRequest:(KS3Request *)request {
+- (NSString * _Nonnull)authorizationForRequest:(KS3Request * _Nonnull)request {
     return [KS3AuthUtils KSYAuthorizationWithAccessKey:self.client.credentials.accessKey
                                              secretKey:self.client.credentials.secretKey
                                               httpVerb:request.httpMethod
@@ -233,10 +239,10 @@
 }
 
 #pragma mark - 上传的回调方法
-- (void)request:(KS3Request *)request didCompleteWithResponse:(KS3Response *)response
+- (void)request:(KS3Request * _Nullable)request didCompleteWithResponse:(KS3Response * _Nullable)response
 {
     if ([request isKindOfClass:[KS3UploadPartRequest class]]) {
-        KS3UploadPartRequest *uploadPartRequest = (KS3UploadPartRequest *)request;
+        KS3UploadPartRequest *uploadPartRequest = (KS3UploadPartRequest * _Nullable)request;
         NSString *uploadId = uploadPartRequest.uploadId;
 
         if (response.httpStatusCode != 200) {
@@ -302,7 +308,7 @@
 
 }
 
-- (void)request:(KS3Request *)request didFailWithError:(NSError *)error
+- (void)request:(KS3Request * _Nullable)request didFailWithError:(NSError * _Nullable)error
 {
     NSLog(@"upload error: %@", error);
     if ([request respondsToSelector:@selector(uploadId)]) {
@@ -315,18 +321,18 @@
     }
 }
 
-- (void)request:(KS3Request *)request didReceiveResponse:(NSURLResponse *)response
+- (void)request:(KS3Request * _Nullable)request didReceiveResponse:(NSURLResponse * _Nullable)response
 {
 }
 
-- (void)request:(KS3Request *)request didReceiveData:(NSData *)data
+- (void)request:(KS3Request * _Nullable)request didReceiveData:(NSData * _Nullable)data
 {
 }
 
--(void)request:(KS3Request *)request didSendData:(long long)bytesWritten totalBytesWritten:(long long)totalBytesWritten totalBytesExpectedToWrite:(long long)totalBytesExpectedToWrite
+-(void)request:(KS3Request * _Nullable)request didSendData:(long long)bytesWritten totalBytesWritten:(long long)totalBytesWritten totalBytesExpectedToWrite:(long long)totalBytesExpectedToWrite
 {
     if ([request isKindOfClass:[KS3UploadPartRequest class]]) {
-        KS3UploadPartRequest *uploadPartRequest = (KS3UploadPartRequest *)request;
+        KS3UploadPartRequest *uploadPartRequest = (KS3UploadPartRequest * _Nullable)request;
         NSString *uploadId = uploadPartRequest.uploadId;
         NSString *objectKey = uploadPartRequest.key;
 

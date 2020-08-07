@@ -1,19 +1,19 @@
 //
 //  KSS3ObjectACLXMLParser.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3ObjectACLXMLParser.h"
 #import "KS3Grant.h"
 
 @interface KS3ObjectACLXMLParser ()
-@property(strong, nonatomic) NSString *currentTag;
-@property(strong, nonatomic) NSMutableString *currentText;
-@property(strong, nonatomic) KS3Grant *grant;
-@property(strong, nonatomic) KS3Grantee *grantee;
+@property(strong, nonatomic, nullable) NSString *currentTag;
+@property(strong, nonatomic, nullable) NSMutableString *currentText;
+@property(strong, nonatomic, nullable) KS3Grant *grant;
+@property(strong, nonatomic, nullable) KS3Grantee *grantee;
 @property(nonatomic) BOOL isOwnerParser;
 @property(nonatomic) BOOL isGrantParser;
 @end

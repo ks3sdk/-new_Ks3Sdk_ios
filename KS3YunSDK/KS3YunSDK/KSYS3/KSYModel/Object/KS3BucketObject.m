@@ -1,17 +1,17 @@
 //
 //  KS3BucketObj.m
-//  KS3iOSSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 15/4/15.
-//  Copyright (c) 2015年 Blues. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020年 ks3. All rights reserved.
 //
 
 #import "KS3BucketObject.h"
 
 @implementation KS3BucketObject
 
-- (instancetype)initWithBucketName:(NSString *)strBucketName
-                           keyName:(NSString *)strKeyName {
+- (instancetype _Nonnull)initWithBucketName:(NSString * _Nullable)strBucketName
+                                    keyName:(NSString * _Nullable)strKeyName {
   self = [super init];
   if (self) {
     _bucketName = strBucketName;

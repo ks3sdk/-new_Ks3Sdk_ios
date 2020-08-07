@@ -1,22 +1,22 @@
 //
-//  S3Owner.h
-//  KS3SDK
+//  KS3Owner.h
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/11/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3Owner : NSObject
 
-@property(strong, nonatomic) NSString *ID;
+@property(strong, nonatomic, nonnull) NSString *ID;
 
-@property(strong, nonatomic) NSString *displayName;
+@property(strong, nonatomic, nonnull) NSString *displayName;
 
-- (id)initWithID:(NSString *)theID withDisplayName:(NSString *)theDisplayName;
+- (instancetype _Nonnull)initWithID:(NSString * _Nonnull)theID withDisplayName:(NSString * _Nonnull)theDisplayName;
 
-+ (id)ownerWithID:(NSString *)theID withDisplayName:(NSString *)theDisplayName;
++ (instancetype _Nonnull)ownerWithID:(NSString * _Nonnull)theID withDisplayName:(NSString * _Nonnull)theDisplayName;
 
 @end
 NS_ASSUME_NONNULL_END

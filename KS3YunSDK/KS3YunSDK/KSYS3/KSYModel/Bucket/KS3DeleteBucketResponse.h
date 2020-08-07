@@ -1,9 +1,9 @@
 //
 //  KSS3DeleteBucketResponse.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/10/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 12/10/14.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Response.h"

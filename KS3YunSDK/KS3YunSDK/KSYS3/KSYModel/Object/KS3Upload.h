@@ -1,8 +1,8 @@
 //
 //  KS3Upload.h
-//  Pods
+//  NEW_KSCSDK
 //
-//  Created by Sun Peng on 2017/5/4.
+//  Created by ks3 on 2020/08/06.
 //
 //
 

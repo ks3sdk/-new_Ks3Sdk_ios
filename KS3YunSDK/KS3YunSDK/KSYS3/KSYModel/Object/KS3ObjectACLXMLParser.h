@@ -1,16 +1,16 @@
 //
 //  KSS3ObjectACLXMLParser.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3BucketACLResult.h"
 #import <Foundation/Foundation.h>
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3ObjectACLXMLParser : NSObject <NSXMLParserDelegate>
-@property(strong, nonatomic) KS3BucketACLResult *listBuctkResult;
+@property(strong, nonatomic, nullable) KS3BucketACLResult *listBuctkResult;
 - (void)kSS3XMLarse:(NSData *)dataXml;
 @end
 

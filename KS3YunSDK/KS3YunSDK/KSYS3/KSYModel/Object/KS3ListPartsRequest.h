@@ -1,9 +1,9 @@
 //
 //  KSS3ListPartsRequest.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3MultipartUpload.h"
@@ -11,13 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3ListPartsRequest : KS3Request
 
-@property(strong, nonatomic) NSString *key;
-@property(nonatomic, strong) NSString *uploadId;
+@property(strong, nonatomic ,nonnull) NSString *key;
+@property(nonatomic, strong, nonnull) NSString *uploadId;
 @property(nonatomic, assign) int32_t maxParts;
 @property(nonatomic, assign) int32_t partNumberMarker;
-@property(nonatomic, strong) NSString *encodingType;
+@property(nonatomic, strong, nullable) NSString *encodingType;
 
-- (id)initWithMultipartUpload:(KS3MultipartUpload *)multipartUpload;
+- (instancetype _Nonnull)initWithMultipartUpload:(KS3MultipartUpload * _Nonnull)multipartUpload;
 
 @end
 NS_ASSUME_NONNULL_END

@@ -1,16 +1,16 @@
 //
 //  KingSoftCredentials.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Credentials.h"
 
 @implementation KS3Credentials
 
-- (id)init {
+- (instancetype _Nullable)init {
   self = [super init];
   if (self) {
     _accessKey = nil;
@@ -19,8 +19,8 @@
   return self;
 }
 
-- (id)initWithAccessKey:(NSString *)accessKey
-          withSecretKey:(NSString *)secretKey {
+- (instancetype _Nullable)initWithAccessKey:(NSString * _Nullable)accessKey
+          withSecretKey:(NSString * _Nullable)secretKey {
   self = [super init];
   if (self) {
     _accessKey = accessKey;

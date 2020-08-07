@@ -1,9 +1,9 @@
 //
 //  KSS3SetObjectGrantACLResponse.m
-//  KS3iOSSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 Blues. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 Blues. All rights reserved.
 //
 
 #import "KS3SetObjectGrantACLResponse.h"

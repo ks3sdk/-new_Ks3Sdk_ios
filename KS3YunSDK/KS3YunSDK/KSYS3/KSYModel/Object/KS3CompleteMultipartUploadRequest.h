@@ -1,9 +1,9 @@
 //
 //  KSS3CompleteMultipartUploadRequest.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3MultipartUpload.h"
@@ -11,18 +11,18 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3CompleteMultipartUploadRequest : KS3Request
 
-@property(nonatomic, strong) NSString *key;
-@property(nonatomic, strong) NSString *uploadId;
-@property(nonatomic, strong) NSData *dataParts;
-@property(nonatomic, strong) NSString *callbackUrl;
-@property(nonatomic, strong) NSString *callbackBody;
-@property(nonatomic, strong) NSDictionary *callbackParams;
+@property(strong, nonatomic, nonnull) NSString *key;
+@property(strong, nonatomic, nonnull) NSString *uploadId;
+@property(strong, nonatomic, nonnull) NSData *dataParts;
+@property(strong, nonatomic, nullable) NSString *callbackUrl;
+@property(strong, nonatomic, nullable) NSString *callbackBody;
+@property(strong, nonatomic, nullable) NSDictionary *callbackParams;
 
-- (id)initWithMultipartUpload:(KS3MultipartUpload *)multipartUpload;
+- (instancetype _Nonnull)initWithMultipartUpload:(KS3MultipartUpload * _Nonnull)multipartUpload;
 
-- (void)addPartWithPartNumber:(int)partNumber withETag:(NSString *)etag;
+- (void)addPartWithPartNumber:(int)partNumber withETag:(NSString * _Nonnull)etag;
 
-- (NSData *)requestBody;
+- (NSData * _Nonnull)requestBody;
 
 @end
 NS_ASSUME_NONNULL_END

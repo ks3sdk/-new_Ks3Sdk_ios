@@ -1,9 +1,9 @@
 //
 //  KSS3GetObjectRequest.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/14/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3GetObjectRequest.h"
@@ -12,7 +12,7 @@
 #import "KS3SDKUtil.h"
 @implementation KS3GetObjectRequest
 
-- (instancetype)initWithName:(NSString *)bucketName {
+- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)bucketName {
   self = [super init];
   if (self) {
     self.bucket = [self URLEncodedString:bucketName];
@@ -28,7 +28,7 @@
   return self;
 }
 
-- (KS3URLRequest *)configureURLRequest {
+- (KS3URLRequest * _Nonnull)configureURLRequest {
   self.kSYResource = [self.kSYResource stringByAppendingFormat:@"/%@", _key];
   self.host = [self.host stringByAppendingFormat:@"/%@", _key];
 

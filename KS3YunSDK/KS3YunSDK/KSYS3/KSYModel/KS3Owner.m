@@ -1,16 +1,16 @@
 //
-//  S3Owner.m
-//  KS3SDK
+//  KS3Owner.m
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/11/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Owner.h"
 
 @implementation KS3Owner
 
-- (id)initWithID:(NSString *)theID withDisplayName:(NSString *)theDisplayName {
+- (instancetype _Nonnull)initWithID:(NSString * _Nonnull)theID withDisplayName:(NSString * _Nonnull)theDisplayName {
   self = [super init];
   if (self) {
     _ID = theID;
@@ -19,7 +19,7 @@
   return self;
 }
 
-+ (id)ownerWithID:(NSString *)theID withDisplayName:(NSString *)theDisplayName {
++ (instancetype _Nonnull)ownerWithID:(NSString * _Nonnull)theID withDisplayName:(NSString * _Nonnull)theDisplayName {
   return [[self alloc] initWithID:theID withDisplayName:theDisplayName];
 }
 

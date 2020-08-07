@@ -1,20 +1,20 @@
 //
 //  KingSoftSDKUtil.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 extern NSString *const KSYS3DefaultRunLoopMode;
 @interface KS3SDKUtil : NSObject
 NSDate *getCurrentDate();
-+ (NSString *)base64md5FromData:(NSData *)data;
-+ (NSString *)urlEncode:(NSString *)input;
-+ (NSString *)applicationDocumentFilePath;
-+ (BOOL)isIpString:(NSString *)aString;
-+ (BOOL)isVaildBucketName:(NSString *)bucket;
++ (NSString * _Nullable)base64md5FromData:(NSData *)data;
++ (NSString * _Nullable)urlEncode:(NSString * _Nullable)input;
++ (NSString * _Nullable)applicationDocumentFilePath;
++ (BOOL)isIpString:(NSString * _Nullable)aString;
++ (BOOL)isVaildBucketName:(NSString * _Nullable)bucket;
 @end
 
 @interface NSData (WithBase64)
@@ -24,7 +24,7 @@ NSDate *getCurrentDate();
  *
  * @return base64 encoded representation of the data.
  */
-- (NSString *)base64EncodedString;
+- (NSString * _Nullable)base64EncodedString;
 
 /**
  * Decode a base-64 encoded string into a new NSData object.
@@ -33,9 +33,9 @@ NSDate *getCurrentDate();
  *
  * @return NSData with the data represented by the encoded string.
  */
-+ (NSData *)dataWithBase64EncodedString:(NSString *)encodedString;
++ (NSData *)dataWithBase64EncodedString:(NSString * _Nullable)encodedString;
 
 @end
 @interface NSString (Md5)
-- (NSString *)MD5Hash;
+- (NSString * _Nullable)MD5Hash;
 @end

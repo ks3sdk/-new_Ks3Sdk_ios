@@ -1,24 +1,24 @@
 //
 //  KSS3Grant.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/12/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 NS_ASSUME_NONNULL_BEGIN
 @class KS3Grantee;
 @interface KS3Grant : NSObject
-@property(strong, nonatomic) NSString *permission;
-@property(strong, nonatomic) KS3Grantee *grantee;
+@property(strong, nonatomic, nullable) NSString *permission;
+@property(strong, nonatomic, nullable) KS3Grantee *grantee;
 
 @end
 
 @interface KS3Grantee : NSObject
-@property(strong, nonatomic) NSString *ID;
-@property(strong, nonatomic) NSString *displayName;
-@property(strong, nonatomic) NSString *URI;
+@property(strong, nonatomic, nonnull) NSString *ID;
+@property(strong, nonatomic, nonnull) NSString *displayName;
+@property(strong, nonatomic, nonnull) NSString *URI;
 
 @end
 NS_ASSUME_NONNULL_END

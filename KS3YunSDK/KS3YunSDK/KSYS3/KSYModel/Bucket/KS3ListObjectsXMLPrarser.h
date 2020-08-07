@@ -1,15 +1,15 @@
 //
 //  KSS3ListObjectsXMLPrarser.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/14/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 @class KS3ListObjectsResult;
 @interface KS3ListObjectsXMLPrarser : NSObject <NSXMLParserDelegate>
-@property(strong, nonatomic) KS3ListObjectsResult *listBuctkResult;
+@property(strong, nonatomic, nullable) KS3ListObjectsResult *listBuctkResult;
 - (void)kSS3XMLarse:(NSData *)dataXml;
 
 @end

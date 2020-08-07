@@ -1,9 +1,9 @@
 //
 //  KSS3UploadPartRequest.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3UploadPartRequest.h"
@@ -16,9 +16,9 @@
 
 @implementation KS3UploadPartRequest
 
-- (id)initWithMultipartUpload:(KS3MultipartUpload *)multipartUpload
+- (instancetype _Nonnull)initWithMultipartUpload:(KS3MultipartUpload * _Nonnull)multipartUpload
                    partNumber:(int32_t)partNumber
-                         data:(NSData *)data
+                         data:(NSData * _Nonnull)data
                   generateMD5:(BOOL)generateMD5 {
   if (self = [super init]) {
     self.bucket = [self URLEncodedString:multipartUpload.bucket];
@@ -62,7 +62,7 @@
   return self;
 }
 
-- (NSMutableURLRequest *)configureURLRequest {
+- (NSMutableURLRequest * _Nonnull)configureURLRequest {
 
   [super configureURLRequest];
   if (self.contentLength < 1) {

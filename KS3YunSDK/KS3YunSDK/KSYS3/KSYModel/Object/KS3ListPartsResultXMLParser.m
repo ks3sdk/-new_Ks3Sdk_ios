@@ -1,20 +1,20 @@
 //
 //  KSS3ListPartsResultXMLParser.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/16/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 12/16/14.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3ListPartsResultXMLParser.h"
 #import "KS3Part.h"
 
 @interface KS3ListPartsResultXMLParser ()
-@property(strong, nonatomic) NSString *currentTag;
-@property(strong, nonatomic) NSMutableString *currentText;
+@property(strong, nonatomic, nullable) NSString *currentTag;
+@property(strong, nonatomic, nullable) NSMutableString *currentText;
 @property(assign, nonatomic) BOOL isInitiator;
 @property(assign, nonatomic) BOOL isOwner;
-@property(strong, nonatomic) KS3Part *part;
+@property(strong, nonatomic, nullable) KS3Part *part;
 @end
 
 @implementation KS3ListPartsResultXMLParser
@@ -31,11 +31,7 @@
   _listPartsResult = [[KS3ListPartsResult alloc] init];
 }
 
-- (void)parser:(NSXMLParser *)parser
-    didStartElement:(NSString *)elementName
-       namespaceURI:(NSString *)namespaceURI
-      qualifiedName:(NSString *)qName
-         attributes:(NSDictionary *)attributeDict {
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(NSDictionary<NSString *, NSString *> *)attributeDict{
   if (nil != _currentText) {
     _currentText = nil;
   }
@@ -62,7 +58,7 @@
   }
 }
 
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
   if (nil == _currentText) {
     _currentText = [[NSMutableString alloc] init];
   }
@@ -70,10 +66,7 @@
   [_currentText appendString:string];
 }
 
-- (void)parser:(NSXMLParser *)parser
- didEndElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName {
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName{
 
   if (!_isInitiator && !_isOwner) {
     if ([elementName isEqualToString:@"ns2:Bucket"]) {

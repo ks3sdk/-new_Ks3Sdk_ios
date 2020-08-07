@@ -1,21 +1,21 @@
 //
 //  KSS3GetBucketLoggingRequest.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/14/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Request.h"
 
 @interface KS3GetBucketLoggingRequest : KS3Request
-@property(nonatomic, strong) NSString *prefix;
+@property(strong, nonatomic, nullable) NSString *prefix;
 
-@property(nonatomic, strong) NSString *marker;
+@property(strong, nonatomic, nullable) NSString *marker;
 
 @property(nonatomic) int32_t maxKeys;
 
 @property(nonatomic, retain) NSString *delimiter;
 
-- (instancetype)initWithName:(NSString *)bucketName;
+- (instancetype _Nullable)initWithName:(NSString * _Nullable)bucketName;
 @end

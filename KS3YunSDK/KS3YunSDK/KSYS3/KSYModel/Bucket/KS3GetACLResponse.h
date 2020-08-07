@@ -1,14 +1,14 @@
 //
 //  KSS3BucketACLResponse.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/12/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Response.h"
 @class KS3BucketACLResult;
 @interface KS3GetACLResponse : KS3Response
 
-@property(nonatomic, strong) KS3BucketACLResult *listBucketsResult;
+@property(strong, nonatomic, nullable) KS3BucketACLResult *listBucketsResult;
 @end

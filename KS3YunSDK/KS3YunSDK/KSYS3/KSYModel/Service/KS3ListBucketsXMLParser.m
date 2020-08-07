@@ -1,18 +1,18 @@
 //
 //  KSS3ListBucketsXMLParser.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/11/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3ListBucketsXMLParser.h"
 #import "KS3Bucket.h"
 #import "KS3Owner.h"
 @interface KS3ListBucketsXMLParser ()
-@property(strong, nonatomic) NSMutableString *currentTag;
-@property(strong, nonatomic) NSMutableString *currentText;
-@property(strong, nonatomic) KS3Bucket *bucket;
+@property(strong, nonatomic, nullable) NSMutableString *currentTag;
+@property(strong, nonatomic, nullable) NSMutableString *currentText;
+@property(strong, nonatomic, nullable) KS3Bucket *bucket;
 @end
 
 @implementation KS3ListBucketsXMLParser
@@ -29,11 +29,7 @@
   _listBuctkResult = [[KS3ListBucketsResult alloc] init];
 }
 
-- (void)parser:(NSXMLParser *)parser
-    didStartElement:(NSString *)elementName
-       namespaceURI:(NSString *)namespaceURI
-      qualifiedName:(NSString *)qName
-         attributes:(NSDictionary *)attributeDict {
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(NSDictionary<NSString *, NSString *> *)attributeDict{
   if (nil != _currentText) {
     _currentText = nil;
   }
@@ -56,10 +52,7 @@
   [_currentText appendString:string];
 }
 
-- (void)parser:(NSXMLParser *)parser
- didEndElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qName {
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName{
   if ([elementName isEqualToString:@"ID"]) {
     _listBuctkResult.owner.ID = _currentText;
   }

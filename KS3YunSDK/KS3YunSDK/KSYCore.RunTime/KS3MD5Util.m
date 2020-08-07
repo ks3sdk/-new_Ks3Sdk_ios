@@ -1,9 +1,9 @@
 //
 //  KingSoftMD5Util.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3MD5Util.h"
@@ -12,7 +12,7 @@
 
 @implementation KS3MD5Util
 
-+ (NSString *)hexEncode:(NSString *)key text:(NSString *)text {
++ (NSString * _Nullable)hexEncode:(NSString * _Nullable)key text:(NSString * _Nullable)text {
   const char *cKey = [key cStringUsingEncoding:NSUTF8StringEncoding];
   const char *cData = [text cStringUsingEncoding:NSUTF8StringEncoding];
   uint8_t cHMAC[CC_SHA1_DIGEST_LENGTH];

@@ -1,16 +1,16 @@
 //
 //  KSS3HeadBucketRequest.m
-//  KS3YunSDK
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3HeadBucketRequest.h"
 #import "KS3Client.h"
 #import "KS3Constants.h"
 @implementation KS3HeadBucketRequest
-- (instancetype)initWithName:(NSString *)bucketName {
+- (instancetype _Nullable)initWithName:(NSString * _Nullable)bucketName {
   self = [super init];
   if (self) {
     self.bucket = [self URLEncodedString:bucketName];

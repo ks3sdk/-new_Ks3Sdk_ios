@@ -1,9 +1,9 @@
 //
 //  KSS3SetACLRequest.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/12/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Request.h"
@@ -11,9 +11,9 @@
 @class KS3AccessControlList;
 @interface KS3SetACLRequest : KS3Request
 
-@property(strong, nonatomic) KS3AccessControlList *acl;
+@property(strong, nonatomic, nullable) KS3AccessControlList *acl;
 
-- (instancetype)initWithName:(NSString *)bucketName
+- (instancetype _Nullable)initWithName:(NSString * _Nullable)bucketName
                    accessACL:(KS3AccessControlList *)accessACL;
 
 @end

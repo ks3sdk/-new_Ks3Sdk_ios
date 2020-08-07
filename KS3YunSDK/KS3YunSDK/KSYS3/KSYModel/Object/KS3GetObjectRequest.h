@@ -1,31 +1,31 @@
 //
 //  KSS3GetObjectRequest.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/14/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Request.h"
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3GetObjectRequest : KS3Request
 
-@property(nonatomic, strong) NSString *responseContentType;
-@property(nonatomic, strong) NSString *responseContentLanguage;
-@property(nonatomic, strong) NSString *responseExpires;
-@property(nonatomic, strong) NSString *responseCacheControl;
-@property(nonatomic, strong) NSString *responseContentDisposition;
-@property(nonatomic, strong) NSString *responseContentEncoding;
+@property(strong, nonatomic, nullable) NSString *responseContentType;
+@property(strong, nonatomic, nullable) NSString *responseContentLanguage;
+@property(strong, nonatomic, nullable) NSString *responseExpires;
+@property(strong, nonatomic, nullable) NSString *responseCacheControl;
+@property(strong, nonatomic, nullable) NSString *responseContentDisposition;
+@property(strong, nonatomic, nullable) NSString *responseContentEncoding;
 
-@property(nonatomic, strong) NSString *range;
-@property(nonatomic, strong) NSString *ifModifiedSince;
-@property(nonatomic, strong) NSString *ifUnmodifiedSince;
-@property(nonatomic, strong) NSString *ifMatch;
-@property(nonatomic, strong) NSString *ifNoneMatch;
-@property(nonatomic, strong) NSString *versionId;
-@property(nonatomic, strong) NSString *key;
+@property(strong, nonatomic, nullable) NSString *range;
+@property(strong, nonatomic, nullable) NSString *ifModifiedSince;
+@property(strong, nonatomic, nullable) NSString *ifUnmodifiedSince;
+@property(strong, nonatomic, nullable) NSString *ifMatch;
+@property(strong, nonatomic, nullable) NSString *ifNoneMatch;
+@property(strong, nonatomic, nullable) NSString *versionId;
+@property(strong, nonatomic, nonnull) NSString *key;
 
-- (instancetype)initWithName:(NSString *)bucketName;
+- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)bucketName;
 
 @end
 NS_ASSUME_NONNULL_END

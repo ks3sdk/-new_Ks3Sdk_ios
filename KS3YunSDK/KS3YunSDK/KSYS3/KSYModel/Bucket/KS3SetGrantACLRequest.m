@@ -1,9 +1,9 @@
 //
 //  KSS3SetGrantACLRequest.m
-//  KS3iOSSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 Blues. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 Blues. All rights reserved.
 //
 
 #import "KS3SetGrantACLRequest.h"
@@ -11,7 +11,7 @@
 #import "KS3Constants.h"
 #import "KS3GrantAccessControlList.h"
 @implementation KS3SetGrantACLRequest
-- (instancetype)initWithName:(NSString *)bucketName
+- (instancetype _Nullable)initWithName:(NSString * _Nullable)bucketName
                    accessACL:(KS3GrantAccessControlList *)accessACL {
   self = [super init];
   if (self) {
@@ -38,7 +38,7 @@
   return self;
 }
 
-- (KS3URLRequest *)configureURLRequest {
+- (KS3URLRequest * _Nonnull)configureURLRequest {
   [super configureURLRequest];
   return self.urlRequest;
 }

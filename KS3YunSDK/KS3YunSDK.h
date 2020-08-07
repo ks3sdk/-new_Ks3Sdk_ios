@@ -1,22 +1,22 @@
 //
-//  KS3YunSDK.h
-//  KS3YunSDK
+//  NEW_KSCSDK.h
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/18/14.
-//  Copyright (c) 2014 KS3. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 KS3. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #ifdef __OBJC__
 
-//! Project version number for KS3YunSDK.
-FOUNDATION_EXPORT double KS3YunSDKVersionNumber;
+//! Project version number for NEW_KSCSDK.
+FOUNDATION_EXPORT double NEW_KSCSDKVersionNumber;
 
-//! Project version string for KS3YunSDK.
-FOUNDATION_EXPORT const unsigned char KS3YunSDKVersionString[];
+//! Project version string for NEW_KSCSDK.
+FOUNDATION_EXPORT const unsigned char NEW_KSCSDKVersionString[];
 
 // In this header, you should import all the public headers of your framework
-// using statements like #import <KS3YunSDK/PublicHeader.h>
+// using statements like #import <NEW_KSCSDK/PublicHeader.h>
 #import "KS3AbortMultipartUploadRequest.h"
 #import "KS3AbortMultipartUploadResponse.h"
 #import "KS3AbstractPutRequest.h"
@@ -86,7 +86,7 @@ FOUNDATION_EXPORT const unsigned char KS3YunSDKVersionString[];
 #import "KS3Request.h"
 #import "KS3Response.h"
 #import "KS3ResponseHeaderOverrides.h"
-#import "KS3SDKUtil.h"
+#import "NEW_KSCSDKUtil.h"
 #import "KS3ServiceRequest.h"
 #import "KS3ServiceResponse.h"
 #import "KS3SetACLRequest.h"

@@ -1,26 +1,26 @@
 //
 //  KSS3ResponseHeaderOverrides.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/14/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3ResponseHeaderOverrides : NSObject
 
-@property(nonatomic, strong) NSString *contentType;
+@property(strong, nonatomic, nullable) NSString *contentType;
 
-@property(nonatomic, strong) NSString *contentLanguage;
+@property(strong, nonatomic, nullable) NSString *contentLanguage;
 
-@property(nonatomic, strong) NSString *expires;
+@property(strong, nonatomic, nullable) NSString *expires;
 
-@property(nonatomic, strong) NSString *cacheControl;
+@property(strong, nonatomic, nullable) NSString *cacheControl;
 
-@property(nonatomic, strong) NSString *contentDisposition;
+@property(strong, nonatomic, nullable) NSString *contentDisposition;
 
-@property(nonatomic, strong) NSString *contentEncoding;
+@property(strong, nonatomic, nullable) NSString *contentEncoding;
 
 @property(nonatomic, assign) NSString *queryString;
 

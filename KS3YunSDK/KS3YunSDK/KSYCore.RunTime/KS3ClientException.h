@@ -1,21 +1,21 @@
 //
 //  KS3ClientException.h
-//  KS3YunSDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/22/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 @interface KS3ClientException : NSException
 
-@property(strong, nonatomic) NSString *message;
+@property(strong, nonatomic, nullable) NSString *message;
 
-@property(strong, nonatomic) NSError *error;
+@property(strong, nonatomic, nullable) NSError *error;
 
-+ (id)exceptionWithMessage:(NSString *)theMessage;
++ (instancetype _Nullable)exceptionWithMessage:(NSString * _Nullable)theMessage;
 
-+ (id)exceptionWithMessage:(NSString *)theMessage andError:(NSError *)theError;
++ (instancetype _Nullable)exceptionWithMessage:(NSString * _Nullable)theMessage andError:(NSError *)theError;
 
 @end

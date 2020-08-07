@@ -1,9 +1,9 @@
 //
 //  KingSoftAuthUtils.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3AuthUtils.h"
@@ -22,55 +22,55 @@ typedef enum {
 
 @interface KS3AuthUtils : NSObject
 
-+ (NSString *)KSYSignatureWithSecretKey:(NSString *)secretKey
-                               httpVerb:(NSString *)httpVerb
-                             contentMd5:(NSString *)strContentMd5
-                            contentType:(NSString *)strContentType
-                                   date:(NSDate *)date
-                 canonicalizedKssHeader:(NSString *)strHeaders
-                  canonicalizedResource:(NSString *)strResource;
++ (NSString * _Nonnull)KSYSignatureWithSecretKey:(NSString * _Nonnull)secretKey
+                               httpVerb:(NSString * _Nonnull)httpVerb
+                             contentMd5:(NSString * _Nullable)strContentMd5
+                            contentType:(NSString * _Nullable)strContentType
+                                             date:(NSDate *_Nonnull)date
+                 canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                  canonicalizedResource:(NSString * _Nullable)strResource;
 
-+ (NSString *)KSYSignatureWithSecretKey:(NSString *)secretKey
-                               httpVerb:(NSString *)httpVerb
-                             contentMd5:(NSString *)strContentMd5
-                            contentType:(NSString *)strContentType
-                                strDate:(NSString *)strDate
-                 canonicalizedKssHeader:(NSString *)strHeaders
-                  canonicalizedResource:(NSString *)strResource;
++ (NSString * _Nonnull)KSYSignatureWithSecretKey:(NSString * _Nonnull)secretKey
+                               httpVerb:(NSString * _Nonnull)httpVerb
+                             contentMd5:(NSString * _Nullable)strContentMd5
+                            contentType:(NSString * _Nullable)strContentType
+                                strDate:(NSString * _Nonnull)strDate
+                 canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                  canonicalizedResource:(NSString * _Nullable)strResource;
 
-+ (NSString *)KSYAuthorizationWithAccessKey:(NSString *)accessKey
-                                  secretKey:(NSString *)secretKey
++ (NSString * _Nonnull)KSYAuthorizationWithAccessKey:(NSString * _Nonnull)accessKey
+                                  secretKey:(NSString * _Nonnull)secretKey
                                httpVerbType:(KSS3_HTTPVerbType)httpVerb
-                                 contentMd5:(NSString *)strContentMd5
-                                contentType:(NSString *)strContentType
+                                 contentMd5:(NSString * _Nullable)strContentMd5
+                                contentType:(NSString * _Nullable)strContentType
+                                       date:(NSDate * _Nonnull)date
+                     canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                      canonicalizedResource:(NSString * _Nullable)strResource;
+
++ (NSString * _Nonnull)strDateWithDate:(NSDate *_Nonnull)date andType:(NSString * _Nonnull)strType;
+
++ (void)signRequestV4:(KS3ServiceRequest *_Nonnull)serviceRequest
+           urlRequest:(KS3URLRequest *_Nonnull)urlRequest
+              headers:(NSMutableDictionary *_Nullable)headers
+              payload:(NSString * _Nullable)payload
+          credentials:(KS3Credentials *_Nullable)credentials;
+
++ (NSString * _Nonnull)KSYAuthorizationWithAccessKey:(NSString * _Nonnull)accessKey
+                                  secretKey:(NSString * _Nonnull)secretKey
+                                   httpVerb:(NSString * _Nonnull)httpVerb
+                                 contentMd5:(NSString * _Nullable)strContentMd5
+                                contentType:(NSString * _Nullable)strContentType
                                        date:(NSDate *)date
-                     canonicalizedKssHeader:(NSString *)strHeaders
-                      canonicalizedResource:(NSString *)strResource;
+                     canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                      canonicalizedResource:(NSString * _Nullable)strResource;
 
-+ (NSString *)strDateWithDate:(NSDate *)date andType:(NSString *)strType;
-
-+ (void)signRequestV4:(KS3ServiceRequest *)serviceRequest
-           urlRequest:(KS3URLRequest *)urlRequest
-              headers:(NSMutableDictionary *)headers
-              payload:(NSString *)payload
-          credentials:(KS3Credentials *)credentials;
-
-+ (NSString *)KSYAuthorizationWithAccessKey:(NSString *)accessKey
-                                  secretKey:(NSString *)secretKey
-                                   httpVerb:(NSString *)httpVerb
-                                 contentMd5:(NSString *)strContentMd5
-                                contentType:(NSString *)strContentType
-                                       date:(NSDate *)date
-                     canonicalizedKssHeader:(NSString *)strHeaders
-                      canonicalizedResource:(NSString *)strResource;
-
-+ (NSString *)KSYAuthorizationWithAccessKey:(NSString *)accessKey
-                                  secretKey:(NSString *)secretKey
-                                   httpVerb:(NSString *)httpVerb
-                                 contentMd5:(NSString *)strContentMd5
-                                contentType:(NSString *)strContentType
-                                    strDate:(NSString *)strDate
-                     canonicalizedKssHeader:(NSString *)strHeaders
-                      canonicalizedResource:(NSString *)strResource;
++ (NSString * _Nonnull)KSYAuthorizationWithAccessKey:(NSString * _Nonnull)accessKey
+                                  secretKey:(NSString * _Nonnull)secretKey
+                                   httpVerb:(NSString * _Nonnull)httpVerb
+                                 contentMd5:(NSString * _Nullable)strContentMd5
+                                contentType:(NSString * _Nullable)strContentType
+                                    strDate:(NSString * _Nonnull)strDate
+                     canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                      canonicalizedResource:(NSString * _Nullable)strResource;
 
 @end

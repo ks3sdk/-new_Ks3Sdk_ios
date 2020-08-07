@@ -1,14 +1,14 @@
 //
 //  KingSoftMD5Util.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 @interface KS3MD5Util : NSObject
-+ (NSString *)hexEncode:(NSString *)key text:(NSString *)text;
++ (NSString * _Nullable)hexEncode:(NSString * _Nullable)key text:(NSString * _Nullable)text;
 
 @end

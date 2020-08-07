@@ -1,8 +1,8 @@
 //
 //  KS3UploadRequest.m
-//  Pods
+//  NEW_KSCSDK
 //
-//  Created by Sun Peng on 2017/5/4.
+//  Created by ks3 on 2020/08/06.
 //
 //
 
@@ -10,10 +10,14 @@
 
 @implementation KS3UploadRequest
 
-- (id)initWithKey:(NSString *)aKey inBucket:(NSString *)aBucket acl:(KS3AccessControlList *)acl grantAcl:(NSArray *)arrGrantAcl {
-    if (self = [super initWithKey:aKey inBucket:aBucket acl:acl grantAcl:arrGrantAcl]) {
+- (instancetype _Nonnull)initWithKey:(NSString * _Nonnull)aKey
+         inBucket:(NSString * _Nonnull)aBucket
+              acl:(KS3AccessControlList *_Nullable)acl
+         grantAcl:(NSArray *_Nullable)arrGrantAcl
+{
+    if (self = [super initWithKey:aKey inBucket:aBucket acl:acl grantAcl:arrGrantAcl]){
+        
     }
-
     return self;
 }
 

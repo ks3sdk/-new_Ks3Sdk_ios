@@ -1,9 +1,6 @@
 //
-//  MSDownLoad.m
-//  MusicSample
-//
-//  Created by JackWong on 14-1-9.
-//  Copyright (c) 2014年 JackWong. All rights reserved.
+//  KS3DownLoad.m
+//  NEW_KSCSDK
 //
 
 #import "KS3DownLoad.h"
@@ -16,7 +13,7 @@
 #import "KS3SDKUtil.h"
 @interface KS3DownLoad ()
 
-@property(strong, nonatomic) KS3Credentials *credentials;
+@property(strong, nonatomic, nullable) KS3Credentials *credentials;
 @end
 
 @implementation KS3DownLoad {
@@ -29,10 +26,10 @@
 @synthesize filePath;
 @synthesize fileSize;
 
-- (id)initWithUrl:(NSString *)aUrl
-      credentials:(KS3Credentials *)
-      credentials:(NSString *)
-       bucketName:(NSString *)objectKey {
+- (instancetype _Nullable)initWithUrl:(NSString * _Nonnull)aUrl
+      credentials:(KS3Credentials * _Nonnull)credentials
+       bucketName:(NSString * _Nonnull)bucketName
+        objectKey:(NSString * _Nonnull)objectKey{
     self = [super init];
     if (self) {
         _credentials = credentials;
@@ -52,7 +49,7 @@
     return self;
 }
 
-- (NSString *)URLEncodedString:(NSString *)str {
+- (NSString * _Nullable)URLEncodedString:(NSString * _Nullable)str {
 
     NSMutableString *output = [NSMutableString string];
 
@@ -88,7 +85,7 @@
     return output;
 }
 
-- (NSString *)applicationDocumentFilePath {
+- (NSString * _Nullable)applicationDocumentFilePath {
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(
                                                                  NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [documentPaths objectAtIndex:0];
@@ -262,7 +259,7 @@
 
 - (KS3Response *)startURLRequest:(NSMutableURLRequest *)urlRequest
                       KS3Request:(KS3Request *)request
-                           token:(NSString *)strToken {
+                           token:(NSString * _Nullable)strToken {
     if (strToken != nil) {
         [urlRequest setValue:strToken forHTTPHeaderField:@"Authorization"];
         [connection cancel];

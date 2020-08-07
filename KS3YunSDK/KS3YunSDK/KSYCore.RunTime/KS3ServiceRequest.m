@@ -1,9 +1,9 @@
 //
 //  KingSoftServiceRequest.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3ServiceRequest.h"
@@ -12,7 +12,7 @@
 
 @implementation KS3ServiceRequest
 
-- (instancetype)init {
+- (instancetype _Nullable)init {
   self = [super init];
   if (self) {
     _contentMd5 = @"";
@@ -21,7 +21,6 @@
     _host = @"";
     _requestDate = [NSDate date];
     _strDate = [KS3AuthUtils strDateWithDate:_requestDate andType:@"GMT"];
-
     _strKS3Token = nil;
     _urlRequest = [KS3URLRequest new];
   }
@@ -38,19 +37,19 @@
                   credentials:_credentials];
 }
 
-- (KS3URLRequest *)configureURLRequest {
+- (KS3URLRequest * _Nonnull)configureURLRequest {
   [self sign];
   return _urlRequest;
 }
 
-- (KS3ClientException *)validate {
+- (KS3ClientException * _Nullable)validate {
   return nil;
 }
 - (void)cancel {
   [self.urlConnection cancel];
 }
 
-- (NSString *)URLEncodedString:(NSString *)str {
+- (NSString * _Nullable)URLEncodedString:(NSString * _Nullable)str {
   NSMutableString *output = [NSMutableString string];
   const unsigned char *source = (const unsigned char *)[str UTF8String];
 
@@ -92,7 +91,7 @@
   return output;
 }
 
-- (NSString *)kSYHeader {
+- (NSString * _Nullable)kSYHeader {
     NSDictionary *httpHeaders = self.urlRequest.allHTTPHeaderFields;
     NSMutableArray *headerArray = [[NSMutableArray alloc] init];
     for (NSString *headerStr in httpHeaders) {

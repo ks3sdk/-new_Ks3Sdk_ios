@@ -1,16 +1,16 @@
 //
 //  KSS3ListBucketsResult.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/11/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3ListBucketsResult.h"
 
 @implementation KS3ListBucketsResult
 
-- (instancetype)init {
+- (instancetype _Nullable)init {
   self = [super init];
   if (self) {
     _buckets = [[NSMutableArray alloc] init];

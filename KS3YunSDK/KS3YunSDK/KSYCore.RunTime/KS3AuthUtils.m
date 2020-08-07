@@ -1,9 +1,9 @@
 //
 //  KingSoftAuthUtils.m
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3AuthUtils.h"
@@ -13,14 +13,14 @@
 
 @implementation KS3AuthUtils
 
-+ (NSString *)strAuthorizationWithHTTPVerb:(NSString *)accessKey
-                                 secretKey:(NSString *)secretKey
++ (NSString * _Nonnull)strAuthorizationWithHTTPVerb:(NSString * _Nullable)accessKey
+                                 secretKey:(NSString * _Nullable)secretKey
                                   httpVerb:(KSS3_HTTPVerbType)httpVerb
-                                contentMd5:(NSString *)strContentMd5
-                               contentType:(NSString *)strContentType
+                                contentMd5:(NSString * _Nullable)strContentMd5
+                               contentType:(NSString * _Nullable)strContentType
                                       date:(NSDate *)date
-                    canonicalizedKssHeader:(NSString *)strHeaders
-                     canonicalizedResource:(NSString *)strResource {
+                    canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                     canonicalizedResource:(NSString * _Nullable)strResource {
     NSString *strAuthorization = @"KSS ";
     strAuthorization = [strAuthorization stringByAppendingString:accessKey];
     strAuthorization = [strAuthorization stringByAppendingString:@":"];
@@ -35,13 +35,13 @@
     return strAuthorization;
 }
 
-+ (NSString *)strSignatureWithHTTPVerb:(NSString *)secretKey
++ (NSString * _Nonnull)strSignatureWithHTTPVerb:(NSString * _Nullable)secretKey
                               httpVerb:(KSS3_HTTPVerbType)httpVerb
-                            contentMd5:(NSString *)strContentMd5
-                           contentType:(NSString *)strContentType
+                            contentMd5:(NSString * _Nullable)strContentMd5
+                           contentType:(NSString * _Nullable)strContentType
                                   date:(NSDate *)date
-                canonicalizedKssHeader:(NSString *)strHeaders
-                 canonicalizedResource:(NSString *)strResource {
+                canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                 canonicalizedResource:(NSString * _Nullable)strResource {
     // **** Http verb
     NSString *strHttpVerb = @"GET";
     switch (httpVerb) {
@@ -85,7 +85,7 @@
     return strToSig;
 }
 
-+ (NSString *)strDateWithDate:(NSDate *)date andType:(NSString *)strType {
++ (NSString * _Nonnull)strDateWithDate:(NSDate * _Nonnull)date andType:(NSString * _Nonnull)strType {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
@@ -95,13 +95,13 @@
     return strTime;
 }
 
-+ (NSString *)KSYSignatureWithSecretKey:(NSString *)secretKey
-                               httpVerb:(NSString *)httpVerb
-                             contentMd5:(NSString *)strContentMd5
-                            contentType:(NSString *)strContentType
-                                   date:(NSDate *)date
-                 canonicalizedKssHeader:(NSString *)strHeaders
-                  canonicalizedResource:(NSString *)strResource {
++ (NSString * _Nonnull)KSYSignatureWithSecretKey:(NSString * _Nonnull)secretKey
+                               httpVerb:(NSString * _Nonnull)httpVerb
+                             contentMd5:(NSString * _Nullable)strContentMd5
+                            contentType:(NSString * _Nullable)strContentType
+                                   date:(NSDate *_Nonnull)date
+                 canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                  canonicalizedResource:(NSString * _Nullable)strResource {
     return [KS3AuthUtils KSYSignatureWithSecretKey:secretKey
                                           httpVerb:httpVerb
                                         contentMd5:strContentMd5
@@ -111,13 +111,13 @@
                              canonicalizedResource:strResource];
 }
 
-+ (NSString *)KSYSignatureWithSecretKey:(NSString *)secretKey
-                               httpVerb:(NSString *)httpVerb
-                             contentMd5:(NSString *)strContentMd5
-                            contentType:(NSString *)strContentType
-                                strDate:(NSString *)strDate
-                 canonicalizedKssHeader:(NSString *)strHeaders
-                  canonicalizedResource:(NSString *)strResource {
++ (NSString * _Nonnull)KSYSignatureWithSecretKey:(NSString * _Nonnull)secretKey
+                               httpVerb:(NSString * _Nonnull)httpVerb
+                             contentMd5:(NSString * _Nullable)strContentMd5
+                            contentType:(NSString * _Nullable)strContentType
+                                strDate:(NSString * _Nonnull)strDate
+                 canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                  canonicalizedResource:(NSString * _Nullable)strResource {
     // **** Signature
     NSString *strToSig = httpVerb;
     strToSig = [strToSig stringByAppendingString:@"\n"];
@@ -148,14 +148,14 @@
     return strToSig;
 }
 
-+ (NSString *)KSYAuthorizationWithAccessKey:(NSString *)accessKey
-                                  secretKey:(NSString *)secretKey
-                               httpVerbType:(KSS3_HTTPVerbType)httpVerb
-                                 contentMd5:(NSString *)strContentMd5
-                                contentType:(NSString *)strContentType
-                                       date:(NSDate *)date
-                     canonicalizedKssHeader:(NSString *)strHeaders
-                      canonicalizedResource:(NSString *)strResource {
++ (NSString * _Nonnull)KSYAuthorizationWithAccessKey:(NSString * _Nonnull)accessKey
+                                  secretKey:(NSString * _Nonnull)secretKey
+                               httpVerbType:(KSS3_HTTPVerbType )httpVerb
+                                 contentMd5:(NSString * _Nullable)strContentMd5
+                                contentType:(NSString * _Nullable)strContentType
+                                       date:(NSDate * _Nonnull)date
+                     canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                      canonicalizedResource:(NSString * _Nullable)strResource {
     NSString *strHttpVerb = @"GET";
     switch (httpVerb) {
         case KSS3_HTTPVerbGet:
@@ -184,14 +184,14 @@
                          canonicalizedResource:strResource];
 }
 
-+ (NSString *)KSYAuthorizationWithAccessKey:(NSString *)accessKey
-                                  secretKey:(NSString *)secretKey
-                                   httpVerb:(NSString *)httpVerb
-                                 contentMd5:(NSString *)strContentMd5
-                                contentType:(NSString *)strContentType
++ (NSString * _Nonnull)KSYAuthorizationWithAccessKey:(NSString * _Nonnull)accessKey
+                                  secretKey:(NSString * _Nonnull)secretKey
+                                   httpVerb:(NSString * _Nonnull)httpVerb
+                                 contentMd5:(NSString * _Nullable)strContentMd5
+                                contentType:(NSString * _Nullable)strContentType
                                        date:(NSDate *)date
-                     canonicalizedKssHeader:(NSString *)strHeaders
-                      canonicalizedResource:(NSString *)strResource {
+                     canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                      canonicalizedResource:(NSString * _Nullable)strResource {
     NSString *strAuthorization = @"KSS ";
     strAuthorization = [strAuthorization stringByAppendingString:accessKey];
     strAuthorization = [strAuthorization stringByAppendingString:@":"];
@@ -206,14 +206,14 @@
     return strAuthorization;
 }
 
-+ (NSString *)KSYAuthorizationWithAccessKey:(NSString *)accessKey
-                                  secretKey:(NSString *)secretKey
-                                   httpVerb:(NSString *)httpVerb
-                                 contentMd5:(NSString *)strContentMd5
-                                contentType:(NSString *)strContentType
-                                    strDate:(NSString *)strDate
-                     canonicalizedKssHeader:(NSString *)strHeaders
-                      canonicalizedResource:(NSString *)strResource {
++ (NSString * _Nonnull)KSYAuthorizationWithAccessKey:(NSString * _Nonnull)accessKey
+                                  secretKey:(NSString * _Nonnull)secretKey
+                                   httpVerb:(NSString * _Nonnull)httpVerb
+                                 contentMd5:(NSString * _Nullable)strContentMd5
+                                contentType:(NSString * _Nullable)strContentType
+                                    strDate:(NSString * _Nonnull)strDate
+                     canonicalizedKssHeader:(NSString * _Nullable)strHeaders
+                      canonicalizedResource:(NSString * _Nullable)strResource {
     NSString *strAuthorization = @"KSS ";
     strAuthorization = [strAuthorization stringByAppendingString:accessKey];
     strAuthorization = [strAuthorization stringByAppendingString:@":"];
@@ -228,11 +228,11 @@
     return strAuthorization;
 }
 
-+ (void)signRequestV4:(KS3ServiceRequest *)serviceRequest
-           urlRequest:(KS3URLRequest *)urlRequest
-              headers:(NSMutableDictionary *)headers
-              payload:(NSString *)payload
-          credentials:(KS3Credentials *)credentials {
++ (void)signRequestV4:(KS3ServiceRequest *_Nonnull)serviceRequest
+           urlRequest:(KS3URLRequest *_Nonnull)urlRequest
+              headers:(NSMutableDictionary *_Nullable)headers
+              payload:(NSString * _Nullable)payload
+          credentials:(KS3Credentials *_Nullable)credentials {
     [urlRequest setValue:serviceRequest.strDate forHTTPHeaderField:@"Date"];
     NSString *strAuthorization = @"";
     if (credentials.accessKey != nil && credentials.secretKey != nil) {

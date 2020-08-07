@@ -1,9 +1,9 @@
 //
 //  KSS3AbortMultipartUploadRequest.m
-//  KS3iOSSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 Blues. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 Blues. All rights reserved.
 //
 
 #import "KS3AbortMultipartUploadRequest.h"
@@ -11,7 +11,7 @@
 #import "KS3Constants.h"
 @implementation KS3AbortMultipartUploadRequest
 
-- (instancetype)initWithName:(NSString *)bucketName {
+- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)bucketName {
   self = [super init];
   if (self) {
     self.bucket = [self URLEncodedString:bucketName];
@@ -27,7 +27,7 @@
   return self;
 }
 
-- (id)initWithMultipartUpload:(KS3MultipartUpload *)multipartUpload {
+- (instancetype _Nonnull)initWithMultipartUpload:(KS3MultipartUpload * _Nonnull)multipartUpload {
   if (self = [super init]) {
     self.bucket = [self URLEncodedString:multipartUpload.bucket];
     self.key = [self URLEncodedString:multipartUpload.key];
@@ -52,7 +52,7 @@
       [NSString stringWithFormat:@"%@/%@?uploadId=%@", self.kSYResource, _key,
                                  self.uploadId];
 }
-- (KS3URLRequest *)configureURLRequest {
+- (KS3URLRequest * _Nonnull)configureURLRequest {
 
   self.host = [NSString
       stringWithFormat:@"%@/%@?uploadId=%@", self.host, _key, _uploadId];

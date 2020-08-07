@@ -1,9 +1,9 @@
 //
 //  KS3ErrorHandler.m
-//  KS3YunSDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/23/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 12/23/14.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 // Public Constants
@@ -45,8 +45,8 @@ static BOOL throwsExceptions = NO;
 }
 
 + (NSError *)errorFromException:(NSException *)exception
-             serviceErrorDomain:(NSString *)serviceErrorDomain
-              clientErrorDomain:(NSString *)clientErrorDomain {
+             serviceErrorDomain:(NSString * _Nullable)serviceErrorDomain
+              clientErrorDomain:(NSString * _Nullable)clientErrorDomain {
   NSError *error = nil;
 
   if ([exception isKindOfClass:[KS3ClientException class]]) {

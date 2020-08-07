@@ -1,15 +1,15 @@
 //
 //  KSS3Buckket.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 @interface KS3Bucket : NSObject
 
-@property(strong, nonatomic) NSString *name;
-@property(strong, nonatomic) NSString *creationDate;
+@property(strong, nonatomic, nullable) NSString *name;
+@property(strong, nonatomic, nullable) NSString *creationDate;
 @end

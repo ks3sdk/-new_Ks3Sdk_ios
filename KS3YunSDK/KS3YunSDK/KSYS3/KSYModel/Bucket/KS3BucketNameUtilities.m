@@ -1,9 +1,9 @@
 //
 //  KS3BucketNameUtilities.m
-//  KS3YunSDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/23/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 12/23/14.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3BucketNameUtilities.h"
@@ -11,7 +11,8 @@
 #import "KS3SDKUtil.h"
 #import <ctype.h>
 @implementation KS3BucketNameUtilities
-+ (KS3ClientException *)validateBucketName:(NSString *)theBucketName {
+
++ (KS3ClientException *)validateBucketName:(NSString * _Nullable)theBucketName {
   if (theBucketName == nil) {
     return [KS3ClientException
         exceptionWithMessage:@"Bucket name should not be nil."];
@@ -73,7 +74,7 @@
 
   return nil;
 }
-+ (bool)isDNSBucketName:(NSString *)theBucketName;
++ (bool)isDNSBucketName:(NSString * _Nullable)theBucketName;
 {
   if (theBucketName == nil) {
     return NO;
@@ -112,8 +113,8 @@
   return YES;
 }
 
-+ (bool)contains:(NSString *)sourceString
-    searchString:(NSString *)searchString {
++ (bool)contains:(NSString * _Nullable)sourceString
+    searchString:(NSString * _Nullable)searchString {
   NSRange range = [sourceString rangeOfString:searchString];
 
   return (range.location != NSNotFound);

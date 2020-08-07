@@ -1,9 +1,9 @@
 //
 //  KS3PutObjectCopyRequest.m
-//  KSYSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/25/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3PutObjectCopyRequest.h"
@@ -11,10 +11,12 @@
 #import "KS3Constants.h"
 @implementation KS3PutObjectCopyRequest
 
-- (instancetype)initWithName:(KS3BucketObject *)destBucketObj
-             sourceBucketObj:(KS3BucketObject *)sourBucketObj {
+- (instancetype _Nonnull)initWithName:(KS3BucketObject * _Nonnull)destBucketObj
+             sourceBucketObj:(KS3BucketObject * _Nonnull)sourBucketObj {
   self = [super init];
   if (self) {
+      
+    //目标
     self.bucket = [self URLEncodedString:destBucketObj.bucketName];
     self.key = [self URLEncodedString:destBucketObj.objKey];
     self.httpMethod = kHttpMethodPut;
@@ -29,8 +31,6 @@
     // ****
     self.strSourceBucket = [self URLEncodedString:sourBucketObj.bucketName];
     self.strSourceObject = [self URLEncodedString:sourBucketObj.objKey];
-    NSString *strValue = [NSString
-        stringWithFormat:@"/%@/%@", _strSourceBucket, _strSourceObject];
     self.host = [NSString stringWithFormat:@"%@/%@", self.host, _key];
     self.kSYResource =
         [NSString stringWithFormat:@"%@/%@", self.kSYResource, _key];
@@ -38,7 +38,7 @@
   return self;
 }
 
-- (KS3URLRequest *)configureURLRequest {
+- (KS3URLRequest * _Nonnull)configureURLRequest {
   NSString *strValue =
       [NSString stringWithFormat:@"/%@/%@", _strSourceBucket, _strSourceObject];
 

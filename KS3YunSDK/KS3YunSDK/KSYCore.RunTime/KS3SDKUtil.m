@@ -1,9 +1,9 @@
 //
 //  KingSoftSDKUtil.m
-//  KS3SDK
+//  NEW_KSCSDKUtil
 //
-//  Created by JackWong on 12/9/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3SDKUtil.h"
@@ -30,7 +30,7 @@ static const short base64DecodingTable[] = {
 NSString *const KSYS3DefaultRunLoopMode = @"com.ksyun.DefaultRunLoopMode";
 @implementation KS3SDKUtil
 NSDate *getCurrentDate() { return [NSDate date]; }
-+ (NSString *)base64md5FromData:(NSData *)data {
++ (NSString * _Nullable)base64md5FromData:(NSData *)data {
 
   const void *cStr = [data bytes];
   unsigned char result[CC_MD5_DIGEST_LENGTH];
@@ -41,20 +41,20 @@ NSDate *getCurrentDate() { return [NSDate date]; }
       [[NSData alloc] initWithBytes:result length:CC_MD5_DIGEST_LENGTH];
   return [md5 base64EncodedString];
 }
-+ (NSString *)urlEncode:(NSString *)input {
++ (NSString * _Nullable)urlEncode:(NSString * _Nullable)input {
   NSString *encoded =
-      (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+      (NSString * _Nullable)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
           NULL, (CFStringRef)input, NULL,
           (CFStringRef) @"!*'\"();:@&=+$,/?%#[]% ", kCFStringEncodingUTF8));
   return encoded;
 }
-+ (NSString *)applicationDocumentFilePath {
++ (NSString * _Nullable)applicationDocumentFilePath {
   NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(
       NSDocumentDirectory, NSUserDomainMask, YES);
   return documentPaths[0];
 }
 
-+ (BOOL)isIpString:(NSString *)aString {
++ (BOOL)isIpString:(NSString * _Nullable)aString {
   NSString *regex = @"(\\d{1,2}|1\\d\\d|2[0-4]\\d|25[0-5])\\.(\\d{1,2}|1\\d\\d|"
                     @"2[0-4]\\d|25[0-5])\\.(\\d{1,2}|1\\d\\d|2[0-4]\\d|25[0-5]"
                     @")\\.(\\d{1,2}|1\\d\\d|2[0-4]\\d|25[0-5])";
@@ -68,7 +68,7 @@ NSDate *getCurrentDate() { return [NSDate date]; }
   //    return [aString isMatchedByRegex:regex];
 }
 
-+ (BOOL)isVaildBucketName:(NSString *)bucket {
++ (BOOL)isVaildBucketName:(NSString * _Nullable)bucket {
   NSString *strReg5 = @"^[a-z0-9-.]+$";
   NSPredicate *pred =
       [NSPredicate predicateWithFormat:@"SELF MATCHES %@", strReg5];
@@ -82,7 +82,7 @@ NSDate *getCurrentDate() { return [NSDate date]; }
 
 @implementation NSData (WithBase64)
 
-- (NSString *)base64EncodedString {
+- (NSString * _Nullable)base64EncodedString {
   NSMutableString *result;
   unsigned char *raw;
   unsigned long length;
@@ -135,7 +135,7 @@ NSDate *getCurrentDate() { return [NSDate date]; }
   return [NSString stringWithString:result]; // convert to immutable string
 }
 
-+ (NSData *)dataWithBase64EncodedString:(NSString *)encodedString {
++ (NSData *)dataWithBase64EncodedString:(NSString * _Nullable)encodedString {
   if (nil == encodedString || [encodedString length] < 1) {
     return [NSData data];
   }
@@ -214,7 +214,7 @@ NSDate *getCurrentDate() { return [NSDate date]; }
 @end
 @implementation NSString (Md5)
 
-- (NSString *)MD5Hash {
+- (NSString * _Nullable)MD5Hash {
   const char *cStr = [self UTF8String];
   unsigned char result[16];
   CC_MD5(cStr, (CC_LONG)strlen(cStr), result);

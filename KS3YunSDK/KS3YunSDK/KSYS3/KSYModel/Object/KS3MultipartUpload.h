@@ -1,9 +1,9 @@
 //
 //  KSS3MultipartUpload.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Owner.h"
@@ -19,19 +19,19 @@ typedef enum {
 
 @interface KS3MultipartUpload : NSObject
 
-@property(nonatomic, strong) NSString *key;
+@property(nonatomic, strong, nonnull) NSString *key;
 
-@property(nonatomic, strong) NSString *bucket;
+@property(nonatomic, strong, nonnull) NSString *bucket;
 
-@property(nonatomic, strong) NSString *uploadId;
+@property(nonatomic, strong, nonnull) NSString *uploadId;
 
-@property(nonatomic, strong) NSString *storageClass;
+@property(nonatomic, strong, nonnull) NSString *storageClass;
 
-@property(nonatomic, strong) KS3Owner *initiator;
+@property(nonatomic, strong, nullable) KS3Owner *initiator;
 
-@property(nonatomic, strong) KS3Owner *owner;
+@property(nonatomic, strong, nullable) KS3Owner *owner;
 
-@property(nonatomic, strong) NSDate *initiated;
+@property(nonatomic, strong, nullable) NSDate *initiated;
 
 @property(assign, readonly) BOOL isCanceled;
 

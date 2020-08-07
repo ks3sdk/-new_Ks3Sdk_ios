@@ -1,9 +1,9 @@
 //
 //  KSS3ListPartsResult.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/16/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 12/16/14.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import "KS3Owner.h"
@@ -11,10 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3ListPartsResult : NSObject
 
-@property(strong, nonatomic) NSString *Bucket;
+@property(strong, nonatomic, nonnull) NSString *Bucket;
 
-@property(strong, nonatomic) NSString *key;
-@property(strong, nonatomic) NSString *UploadId;
+@property(strong, nonatomic, nonnull) NSString *key;
+@property(strong, nonatomic, nonnull) NSString *UploadId;
 
 @property(nonatomic) int32_t partNumberMarker;
 
@@ -22,11 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic) BOOL isTruncated;
 
-@property(strong, nonatomic) KS3Owner *initiator;
+@property(strong, nonatomic, nullable) KS3Owner *initiator;
 
-@property(strong, nonatomic) KS3Owner *owner;
+@property(strong, nonatomic, nullable) KS3Owner *owner;
 
-@property(strong, nonatomic) NSMutableArray *parts;
+@property(strong, nonatomic, nullable) NSMutableArray *parts;
 
 @end
 NS_ASSUME_NONNULL_END

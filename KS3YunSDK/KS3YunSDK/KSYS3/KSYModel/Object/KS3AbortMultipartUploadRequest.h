@@ -1,9 +1,9 @@
 //
 //  KSS3AbortMultipartUploadRequest.h
-//  KS3iOSSDKDemo
+//  NEW_KSCSDK
 //
-//  Created by Blues on 12/18/14.
-//  Copyright (c) 2014 Blues. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 Blues. All rights reserved.
 //
 
 #import "KS3MultipartUpload.h"
@@ -11,11 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3AbortMultipartUploadRequest : KS3Request
 
-@property(strong, nonatomic) NSString *key;
-@property(strong, nonatomic) NSString *uploadId;
+@property(strong, nonatomic, nonnull) NSString *key;
+@property(strong, nonatomic, nonnull) NSString *uploadId;
 
-- (instancetype)initWithName:(NSString *)bucketName;
-- (id)initWithMultipartUpload:(KS3MultipartUpload *)multipartUpload;
+- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)bucketName;
+- (instancetype _Nonnull)initWithMultipartUpload:(KS3MultipartUpload * _Nonnull)multipartUpload;
 
 @end
 NS_ASSUME_NONNULL_END

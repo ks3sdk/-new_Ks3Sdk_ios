@@ -1,21 +1,21 @@
 //
 //  KSS3CompleteMultipartUploadResult.h
-//  KS3SDK
+//  NEW_KSCSDK
 //
-//  Created by JackWong on 12/15/14.
-//  Copyright (c) 2014 kingsoft. All rights reserved.
+//  Created by ks3 on 2020/08/06.
+//  Copyright (c) 2020 kingsoft. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3CompleteMultipartUploadResult : NSObject
 
-@property(nonatomic, strong) NSString *location;
+@property(strong, nonatomic, nullable) NSString *location;
 
-@property(nonatomic, strong) NSString *bucket;
+@property(strong, nonatomic, nullable) NSString *bucket;
 
-@property(nonatomic, strong) NSString *key;
+@property(strong, nonatomic, nullable) NSString *key;
 
-@property(nonatomic, strong) NSString *etag;
+@property(strong, nonatomic, nullable) NSString *etag;
 @end
 NS_ASSUME_NONNULL_END

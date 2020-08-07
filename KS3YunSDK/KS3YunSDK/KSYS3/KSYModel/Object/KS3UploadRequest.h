@@ -1,8 +1,8 @@
 //
 //  KS3UploadRequest.h
-//  Pods
+//  NEW_KSCSDK
 //
-//  Created by Sun Peng on 2017/5/4.
+//  Created by ks3 on 2020/08/06.
 //
 //
 
@@ -10,10 +10,10 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface KS3UploadRequest : KS3InitiateMultipartUploadRequest
 
-- (id)initWithKey:(NSString *)aKey
-         inBucket:(NSString *)aBucket
-              acl:(KS3AccessControlList *)acl
-         grantAcl:(NSArray *)arrGrantAcl;
+- (instancetype _Nonnull)initWithKey:(NSString * _Nonnull)aKey
+         inBucket:(NSString * _Nonnull)aBucket
+              acl:(KS3AccessControlList *_Nullable)acl
+         grantAcl:(NSArray *_Nullable)arrGrantAcl;
 
 @end
 NS_ASSUME_NONNULL_END
