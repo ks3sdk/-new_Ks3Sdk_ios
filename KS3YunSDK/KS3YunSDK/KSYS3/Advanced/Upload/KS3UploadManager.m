@@ -46,7 +46,7 @@
 
 @implementation KS3UploadManager
 
-- (instancetype _Nullable)initWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler _Nullable)authHandler {
+- (instancetype _Nonnull)initWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler _Nullable)authHandler {
     if (self = [super init]) {
         self.client = client;
         self.authHandler = authHandler;
@@ -63,7 +63,7 @@
     return self;
 }
 
-+(instancetype _Nullable)sharedInstanceWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler)authHandler {
++(instancetype _Nonnull)sharedInstanceWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler)authHandler {
     static KS3UploadManager *sharedManager = nil;
 
     static dispatch_once_t onceToken;

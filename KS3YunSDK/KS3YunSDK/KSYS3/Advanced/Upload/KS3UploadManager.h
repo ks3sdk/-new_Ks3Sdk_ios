@@ -27,9 +27,9 @@ typedef NSString * _Nullable (^KS3AuthCalculateHandler)(KS3Request * _Nullable r
 
 @interface KS3UploadManager : NSObject
 
-- (instancetype _Nullable)initWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler _Nullable)authHandler;
+- (instancetype _Nonnull)initWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler _Nullable)authHandler;
 
-+ (instancetype _Nullable)sharedInstanceWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler _Nullable)authHandler;
++ (instancetype _Nonnull)sharedInstanceWithClient:(KS3Client * _Nonnull)client authHandler:(KS3AuthCalculateHandler _Nullable)authHandler;
 
 - (void)putData:(NSData *_Nonnull)data
         request:(KS3UploadRequest *_Nonnull)request
