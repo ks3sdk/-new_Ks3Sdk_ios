@@ -86,7 +86,7 @@ FOUNDATION_EXPORT const unsigned char NEW_KSCSDKVersionString[];
 #import "KS3Request.h"
 #import "KS3Response.h"
 #import "KS3ResponseHeaderOverrides.h"
-#import "NEW_KSCSDKUtil.h"
+#import "KS3SDKUtil.h"
 #import "KS3ServiceRequest.h"
 #import "KS3ServiceResponse.h"
 #import "KS3SetACLRequest.h"
